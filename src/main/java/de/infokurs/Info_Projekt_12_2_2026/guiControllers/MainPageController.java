@@ -16,88 +16,149 @@ import javafx.util.Duration;
 import java.util.ArrayList;
 
 public class MainPageController {
+//    scale logic too complicated wont implement
+    private static final double PRESS_SCALE = 0.90;
 
     private double hue = 0;
-    private int speed = 16; //in ms
+    private int speed = 16;
     private ArrayList<ImageView> buttonList;
+
+    //private double initialWindowWidth;
+    //private double initialWindowHeight;
     @FXML
     private Label rainbowLabel;
-
-
     @FXML
     private ImageView shopButton;
     @FXML
     private ImageView unicornButton;
-
+    @FXML
+    private ImageView breedingButton;
+    @FXML
+    private ImageView stallButton;
+    @FXML
+    private ImageView templeButton;
     @FXML
     private GridPane gridPane;
 
+
     @FXML
-    public void initialize() {
-        buttonList = new ArrayList<ImageView>();
-
-        buttonList.add(unicornButton);
-        buttonList.add(shopButton);
-
-        gridPane.widthProperty().addListener((obs, oldVal, newVal) -> updateImageSize());
-        gridPane.heightProperty().addListener((obs, oldVal, newVal) -> updateImageSize());
-
-
-        Timeline timeline = new Timeline(
-                new KeyFrame(Duration.millis(speed), e -> {
-                    hue = (hue + 1) % 360;
-                    rainbowLabel.setTextFill(Color.hsb(hue, 1.0, 1.0));
-                })
-        );
-        timeline.setCycleCount(Timeline.INDEFINITE);
-        timeline.play();
-
-
-
+    void breedingButtonPressed(MouseEvent event) {
+        scale((ImageView) event.getSource(), PRESS_SCALE);
     }
 
-    private void updateImageSize() {
-
-        ColumnConstraints col = gridPane.getColumnConstraints().get(1);
-        RowConstraints row = gridPane.getRowConstraints().get(1);
-
-        double cellWidth = gridPane.getWidth() * (col.getPercentWidth() / 100);
-        double cellHeight = gridPane.getHeight() * (row.getPercentHeight() / 100);
-        for(ImageView imageView : buttonList) {
-            imageView.setFitWidth(cellWidth);
-            imageView.setFitHeight(cellHeight);
-        }
-
-
+    @FXML
+    void breedingButtonReleased(MouseEvent event) {
+        restore((ImageView) event.getSource());
     }
 
 
+    @FXML
+    void stallButtonPressed(MouseEvent event) {
+        scale((ImageView) event.getSource(), PRESS_SCALE);
+    }
+
+    @FXML
+    void stallButtonReleased(MouseEvent event) {
+        restore((ImageView) event.getSource());
+    }
+
+    @FXML
+    void templeButtonPressed(MouseEvent event) {
+        scale((ImageView) event.getSource(), PRESS_SCALE);
+    }
+
+    @FXML
+    void templeButtonReleased(MouseEvent event) {
+        restore((ImageView) event.getSource());
+    }
     @FXML
     void unicornButtonMousePressed(MouseEvent event) {
         Properties.setRainbows(Properties.getRainbows() + 1);
         rainbowLabel.setText("current reighnbowes: " + Properties.getRainbows());
         System.out.println(Properties.getRainbows());
-        adjustScale(event, 10);
+        scale((ImageView) event.getSource(), PRESS_SCALE);
     }
 
     @FXML
     void unicornButtonMouseReleased(MouseEvent event) {
-        adjustScale(event, -10);
+        restore((ImageView) event.getSource());
     }
 
     @FXML
     void shopButtonPressed(MouseEvent event) {
-        adjustScale(event, 10);
+        scale((ImageView) event.getSource(), PRESS_SCALE);
     }
 
     @FXML
     void shopButtonReleased(MouseEvent event) {
-         adjustScale(event, -10);
-
+        restore((ImageView) event.getSource());
     }
 
-    void adjustScale(MouseEvent event, int amount) {
-        ((ImageView) event.getSource()).setFitHeight(unicornButton.getFitHeight() + amount);
-        ((ImageView) event.getSource()).setFitWidth(unicornButton.getFitWidth() + amount);
+
+@FXML
+public void initialize() {
+    buttonList = new ArrayList<>();
+    buttonList.add(unicornButton);
+    buttonList.add(shopButton);
+    buttonList.add(breedingButton);
+    buttonList.add(stallButton);
+    buttonList.add(templeButton);
+
+    Timeline timeline = new Timeline(
+            new KeyFrame(Duration.millis(speed), e -> {
+                hue = (hue + 1) % 360;
+                rainbowLabel.setTextFill(Color.hsb(hue, 1.0, 1.0));
+            })
+    );
+    timeline.setCycleCount(Timeline.INDEFINITE);
+    timeline.play();
+}
+//    for (ImageView iv : buttonList) {
+//        iv.setUserData(new double[]{iv.getFitWidth(), iv.getFitHeight()});
+//    }
+//
+//    gridPane.widthProperty().addListener((obs, o, newVal) -> {
+//        if (initialWindowWidth == 0) {
+//            initialWindowWidth = newVal.doubleValue();
+//            return; // skip first fire, this IS the initial size
+//        }
+//        updateImageSize(newVal.doubleValue(), gridPane.getHeight());
+//    });
+//
+//    gridPane.heightProperty().addListener((obs, o, newVal) -> {
+//        if (initialWindowHeight == 0) {
+//            initialWindowHeight = newVal.doubleValue();
+//            return;
+//        }
+//        updateImageSize(gridPane.getWidth(), newVal.doubleValue());
+//    });
+//
+//    private void updateImageSize(double currentWidth, double currentHeight) {
+//        double scaleX = currentWidth  / initialWindowWidth;
+//        double scaleY = currentHeight / initialWindowHeight;
+//
+//        for (ImageView iv : buttonList) {
+//            double[] natural = (double[]) iv.getUserData();
+//            if (natural == null) return;
+//            iv.setFitWidth (natural[0] * scaleX);
+//            iv.setFitHeight(natural[1] * scaleY);
+//        }
+//    }
+//
+
+
+
+    private void scale(ImageView iv, double factor) {
+        iv.setUserData(new double[]{iv.getFitWidth(), iv.getFitHeight()});
+        iv.setFitWidth(iv.getFitWidth() * factor);
+        iv.setFitHeight(iv.getFitHeight() * factor);
+    }
+
+    private void restore(ImageView iv) {
+        double[] natural = (double[]) iv.getUserData();
+        if (natural != null) {
+            iv.setFitWidth(natural[0]);
+            iv.setFitHeight(natural[1]);
+        }
     }
 }

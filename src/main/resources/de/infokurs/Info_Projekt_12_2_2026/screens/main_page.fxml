@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <GridPane fx:id="gridPane" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.infokurs.Info_Projekt_12_2_2026.guiControllers.MainPageController">
   <columnConstraints>
@@ -22,7 +23,7 @@
     <RowConstraints minHeight="10.0" percentHeight="25.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <ImageView fx:id="shopButton" fitHeight="200.0" fitWidth="200.0" focusTraversable="true" onMousePressed="#shopButtonPressed" onMouseReleased="#shopButtonReleased" pickOnBounds="true" preserveRatio="true" smooth="false" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+      <ImageView fx:id="shopButton" fitHeight="122.0" fitWidth="140.0" focusTraversable="true" onMousePressed="#shopButtonPressed" onMouseReleased="#shopButtonReleased" pickOnBounds="true" preserveRatio="true" smooth="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
          <image>
             <Image url="@../../../../assets/shop.png" />
          </image>
@@ -35,8 +36,7 @@
       </ImageView>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <children>
-            <Label fx:id="rainbowLabel" alignment="CENTER" text="current raeinbowes: 0" textAlignment="CENTER" />
-            <ImageView fx:id="unicornButton" fitHeight="200.0" fitWidth="200.0" focusTraversable="true" onMousePressed="#unicornButtonMousePressed" onMouseReleased="#unicornButtonMouseReleased" pickOnBounds="true" preserveRatio="true" smooth="false">
+            <ImageView fx:id="unicornButton" fitHeight="153.0" fitWidth="119.0" focusTraversable="true" onMousePressed="#unicornButtonMousePressed" onMouseReleased="#unicornButtonMouseReleased" pickOnBounds="true" preserveRatio="true" smooth="false">
                <image>
                   <Image url="@../../../../assets/rainbow.png" />
                </image>
@@ -46,5 +46,34 @@
             </ImageView>
          </children>
       </VBox>
+      <ImageView fx:id="stallButton" fitHeight="122.0" fitWidth="140.0" focusTraversable="true" onMousePressed="#stallButtonPressed" onMouseReleased="#stallButtonReleased" pickOnBounds="true" preserveRatio="true" smooth="false" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+         <image>
+            <Image url="@../../../../assets/stall.png" />
+         </image>
+         <viewport>
+            <Rectangle2D />
+         </viewport>
+      </ImageView>
+      <ImageView fx:id="templeButton" fitHeight="122.0" fitWidth="140.0" focusTraversable="true" onMousePressed="#templeButtonPressed" onMouseReleased="#templeButtonReleased" pickOnBounds="true" preserveRatio="true" smooth="false" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+         <image>
+            <Image url="@../../../../assets/temple.png" />
+         </image>
+         <viewport>
+            <Rectangle2D />
+         </viewport>
+      </ImageView>
+      <ImageView fx:id="breedingButton" fitHeight="122.0" fitWidth="140.0" focusTraversable="true" onMousePressed="#breedingButtonPressed" onMouseReleased="#breedingButtonReleased" pickOnBounds="true" preserveRatio="true" smooth="false" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+         <image>
+            <Image url="@../../../../assets/breeding.png" />
+         </image>
+         <viewport>
+            <Rectangle2D />
+         </viewport>
+      </ImageView>
+      <Label fx:id="rainbowLabel" alignment="CENTER" prefHeight="98.0" prefWidth="195.0" text="current raeinbowes: 0" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </GridPane>

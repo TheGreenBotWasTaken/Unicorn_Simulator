@@ -1,4 +1,4 @@
-package de.infokurs.Info_Projekt_12_2_2026.unicorns;
+package de.infokurs.Info_Projekt_12_2_2026.model.unicorns;
 
 
 import javafx.scene.paint.Color;

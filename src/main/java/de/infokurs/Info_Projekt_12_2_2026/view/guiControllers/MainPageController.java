@@ -1,15 +1,15 @@
-package de.infokurs.Info_Projekt_12_2_2026.guiControllers;
+package de.infokurs.Info_Projekt_12_2_2026.view.guiControllers;
 
-import de.infokurs.Info_Projekt_12_2_2026.Properties;
+import de.infokurs.Info_Projekt_12_2_2026.model.RainbowManager;
+import de.infokurs.Info_Projekt_12_2_2026.model.SaveData;
+import de.infokurs.Info_Projekt_12_2_2026.model.UnicornNumberFormatter;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.RowConstraints;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 public class MainPageController {
 //    scale logic too complicated wont implement
-    private static final double PRESS_SCALE = 0.90;
+    private static final double PRESS_SCALE = 0.95;
 
     private double hue = 0;
     private int speed = 16;
@@ -25,6 +25,8 @@ public class MainPageController {
 
     //private double initialWindowWidth;
     //private double initialWindowHeight;
+    @FXML
+    private ImageView forestButton;
     @FXML
     private Label rainbowLabel;
     @FXML
@@ -73,9 +75,9 @@ public class MainPageController {
     }
     @FXML
     void unicornButtonMousePressed(MouseEvent event) {
-        Properties.setRainbows(Properties.getRainbows() + 1);
-        rainbowLabel.setText("current reighnbowes: " + Properties.getRainbows());
-        System.out.println(Properties.getRainbows());
+        RainbowManager.addRainbows(1);
+        rainbowLabel.setText("current reighnbowes: " + UnicornNumberFormatter.format(RainbowManager.getRainbows()));
+        System.out.println(RainbowManager.getRainbows());
         scale((ImageView) event.getSource(), PRESS_SCALE);
     }
 
@@ -94,6 +96,16 @@ public class MainPageController {
         restore((ImageView) event.getSource());
     }
 
+    @FXML
+    void forestButtonPressed(MouseEvent event) {
+        scale((ImageView) event.getSource(), PRESS_SCALE);
+    }
+
+    @FXML
+    void forestButtonReleased(MouseEvent event) {
+        restore((ImageView) event.getSource());
+    }
+
 
 @FXML
 public void initialize() {
@@ -103,6 +115,7 @@ public void initialize() {
     buttonList.add(breedingButton);
     buttonList.add(stallButton);
     buttonList.add(templeButton);
+    buttonList.add(forestButton);
 
     Timeline timeline = new Timeline(
             new KeyFrame(Duration.millis(speed), e -> {
@@ -112,7 +125,10 @@ public void initialize() {
     );
     timeline.setCycleCount(Timeline.INDEFINITE);
     timeline.play();
+
+    rainbowLabel.setText("current reighnbowes: " + UnicornNumberFormatter.format(RainbowManager.getRainbows()));
 }
+
 //    for (ImageView iv : buttonList) {
 //        iv.setUserData(new double[]{iv.getFitWidth(), iv.getFitHeight()});
 //    }

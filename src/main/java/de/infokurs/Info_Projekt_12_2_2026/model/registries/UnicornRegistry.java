@@ -8,10 +8,11 @@ import java.util.Map;
 import java.util.Optional;
 
 public class UnicornRegistry {
-
+    private boolean frozen = false;
     private static final UnicornRegistry INSTANCE = new UnicornRegistry();
     private final Map<String, Unicorn> unicorns = new LinkedHashMap<>();
 
+    public void freeze() { this.frozen = true; }
 
 
     public static UnicornRegistry getInstance() {
@@ -19,6 +20,7 @@ public class UnicornRegistry {
     }
 
     public void register(Unicorn unicorn) {
+        if (frozen) throw new IllegalStateException("Registry is frozen.");
         if (unicorns.containsKey(unicorn.getId())) {
             throw new IllegalArgumentException(
                     "Unicorn with id \"" + unicorn.getId() + "'\" is already registered."

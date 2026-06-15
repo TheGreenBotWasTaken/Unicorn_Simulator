@@ -9,4 +9,14 @@ public class FireUnicornExample extends Unicorn{
     public static FireUnicornExample getInstance() {
         return INSTANCE;
     }
+
+    @Override
+    public int getBaseCost() {
+        return 10;
+    }
+
+    @Override
+    public double getRps() {
+        return 12345;
+    }
 }

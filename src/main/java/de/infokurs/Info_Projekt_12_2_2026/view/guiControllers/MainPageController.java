@@ -3,21 +3,29 @@ package de.infokurs.Info_Projekt_12_2_2026.view.guiControllers;
 import de.infokurs.Info_Projekt_12_2_2026.model.RainbowManager;
 import de.infokurs.Info_Projekt_12_2_2026.model.SaveData;
 import de.infokurs.Info_Projekt_12_2_2026.model.UnicornNumberFormatter;
+import de.infokurs.Info_Projekt_12_2_2026.view.GuiManager;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class MainPageController {
 //    scale logic too complicated wont implement
-    private static final double PRESS_SCALE = 0.95;
+
 
     private double hue = 0;
     private int speed = 16;
@@ -43,91 +51,99 @@ public class MainPageController {
     private GridPane gridPane;
 
 
+
+    @FXML
+    public void initialize() {
+        buttonList = new ArrayList<>();
+        buttonList.add(unicornButton);
+        buttonList.add(shopButton);
+        buttonList.add(breedingButton);
+        buttonList.add(stallButton);
+        buttonList.add(templeButton);
+        buttonList.add(forestButton);
+
+        Timeline timeline = new Timeline(
+                new KeyFrame(Duration.millis(speed), e -> {
+                    hue = (hue + 1) % 360;
+                    rainbowLabel.setTextFill(Color.hsb(hue, 1.0, 1.0));
+                })
+        );
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
+
+        rainbowLabel.setText("current reighnbowes: " + UnicornNumberFormatter.format(RainbowManager.getRainbows()));
+    }
+
     @FXML
     void breedingButtonPressed(MouseEvent event) {
-        scale((ImageView) event.getSource(), PRESS_SCALE);
+        GuiManager.scale((ImageView) event.getSource(), GuiManager.PRESS_SCALE);
     }
 
     @FXML
     void breedingButtonReleased(MouseEvent event) {
-        restore((ImageView) event.getSource());
+        GuiManager.restore((ImageView) event.getSource());
+        GuiManager.switchToScene(event, "breeding");
     }
 
 
     @FXML
     void stallButtonPressed(MouseEvent event) {
-        scale((ImageView) event.getSource(), PRESS_SCALE);
-    }
+        GuiManager.scale((ImageView) event.getSource(), GuiManager.PRESS_SCALE);
 
+    }
+// maybe alle in eine methode?
     @FXML
     void stallButtonReleased(MouseEvent event) {
-        restore((ImageView) event.getSource());
+        GuiManager.restore((ImageView) event.getSource());
+        GuiManager.switchToScene(event, "stall");
     }
 
     @FXML
     void templeButtonPressed(MouseEvent event) {
-        scale((ImageView) event.getSource(), PRESS_SCALE);
+        GuiManager.scale((ImageView) event.getSource(), GuiManager.PRESS_SCALE);
     }
 
     @FXML
     void templeButtonReleased(MouseEvent event) {
-        restore((ImageView) event.getSource());
+        GuiManager.restore((ImageView) event.getSource());
+        GuiManager.switchToScene(event, "temple");
     }
     @FXML
     void unicornButtonMousePressed(MouseEvent event) {
         RainbowManager.addRainbows(1);
         rainbowLabel.setText("current reighnbowes: " + UnicornNumberFormatter.format(RainbowManager.getRainbows()));
         System.out.println(RainbowManager.getRainbows());
-        scale((ImageView) event.getSource(), PRESS_SCALE);
+        GuiManager.scale((ImageView) event.getSource(), GuiManager.PRESS_SCALE);
     }
 
     @FXML
     void unicornButtonMouseReleased(MouseEvent event) {
-        restore((ImageView) event.getSource());
+        GuiManager.restore((ImageView) event.getSource());
     }
 
     @FXML
     void shopButtonPressed(MouseEvent event) {
-        scale((ImageView) event.getSource(), PRESS_SCALE);
+        GuiManager.scale((ImageView) event.getSource(), GuiManager.PRESS_SCALE);
     }
 
     @FXML
     void shopButtonReleased(MouseEvent event) {
-        restore((ImageView) event.getSource());
+        GuiManager.restore((ImageView) event.getSource());
+        GuiManager.switchToScene(event, "shop");
     }
 
     @FXML
     void forestButtonPressed(MouseEvent event) {
-        scale((ImageView) event.getSource(), PRESS_SCALE);
+        GuiManager.scale((ImageView) event.getSource(), GuiManager.PRESS_SCALE);
     }
 
     @FXML
     void forestButtonReleased(MouseEvent event) {
-        restore((ImageView) event.getSource());
+        GuiManager.restore((ImageView) event.getSource());
+        GuiManager.switchToScene(event, "forest");
     }
 
 
-@FXML
-public void initialize() {
-    buttonList = new ArrayList<>();
-    buttonList.add(unicornButton);
-    buttonList.add(shopButton);
-    buttonList.add(breedingButton);
-    buttonList.add(stallButton);
-    buttonList.add(templeButton);
-    buttonList.add(forestButton);
-
-    Timeline timeline = new Timeline(
-            new KeyFrame(Duration.millis(speed), e -> {
-                hue = (hue + 1) % 360;
-                rainbowLabel.setTextFill(Color.hsb(hue, 1.0, 1.0));
-            })
-    );
-    timeline.setCycleCount(Timeline.INDEFINITE);
-    timeline.play();
-
-    rainbowLabel.setText("current reighnbowes: " + UnicornNumberFormatter.format(RainbowManager.getRainbows()));
-}
 
 //    for (ImageView iv : buttonList) {
 //        iv.setUserData(new double[]{iv.getFitWidth(), iv.getFitHeight()});
@@ -162,19 +178,4 @@ public void initialize() {
 //    }
 //
 
-
-
-    private void scale(ImageView iv, double factor) {
-        iv.setUserData(new double[]{iv.getFitWidth(), iv.getFitHeight()});
-        iv.setFitWidth(iv.getFitWidth() * factor);
-        iv.setFitHeight(iv.getFitHeight() * factor);
-    }
-
-    private void restore(ImageView iv) {
-        double[] natural = (double[]) iv.getUserData();
-        if (natural != null) {
-            iv.setFitWidth(natural[0]);
-            iv.setFitHeight(natural[1]);
-        }
-    }
 }

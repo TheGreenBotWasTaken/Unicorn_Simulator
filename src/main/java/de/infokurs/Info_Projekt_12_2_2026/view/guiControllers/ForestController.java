@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
-public class ShopController {
+public class ForestController {
 
     @FXML
     private ImageView backButton;

@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Optional;
-
+// DEPRECATED DONT USE
 public class UnicornRegistry {
     private boolean frozen = false;
     private static final UnicornRegistry INSTANCE = new UnicornRegistry();

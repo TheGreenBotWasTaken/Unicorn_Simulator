@@ -1,5 +1,6 @@
 package de.infokurs.Info_Projekt_12_2_2026.view;
 
+import de.infokurs.Info_Projekt_12_2_2026.model.BackgroundMusicPlayer;
 import de.infokurs.Info_Projekt_12_2_2026.model.SaveData;
 import de.infokurs.Info_Projekt_12_2_2026.model.SaveManager;
 import javafx.application.Application;
@@ -15,6 +16,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class GuiManager extends Application {
+    BackgroundMusicPlayer backgroundMusicPlayer;
     private static Stage stage;
     private static Scene scene;
     public static final double PRESS_SCALE = 0.95;
@@ -30,6 +32,12 @@ public class GuiManager extends Application {
         stage.setResizable(false);
         stage.show();
         System.out.println(scene.getWidth() + " x " + scene.getHeight());
+
+         backgroundMusicPlayer =
+                new BackgroundMusicPlayer("/assets/music");
+
+        backgroundMusicPlayer.setVolume(0.1);
+        backgroundMusicPlayer.play();
     }
     @Override
     public void stop() {

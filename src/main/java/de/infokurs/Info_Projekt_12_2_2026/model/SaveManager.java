@@ -21,6 +21,9 @@ public class SaveManager {
             e.printStackTrace();
         }
     }
+    public static SaveData getSaveData() {
+        return current;
+    }
 
     public static SaveData load() {
         File file = new File(SAVE_FILE);

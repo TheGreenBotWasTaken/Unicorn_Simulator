@@ -5,10 +5,16 @@ public class SaveData {
     public final float VERSION = 1.0f;
     public final String NAME = "UNICORN CLICKING SIMULATOR DELUXE ULTIMATE V. " + (2000 + VERSION);
     private long rainbows = 0;
-
+    private double volume;
     public long getRainbows() { return rainbows; }
     public void setRainbows(long rainbows) { this.rainbows = rainbows; }
 
 
+    public double getVolume() {
+        return volume;
+    }
 
+    public void setVolume(double volume) {
+        this.volume = volume;
+    }
 }

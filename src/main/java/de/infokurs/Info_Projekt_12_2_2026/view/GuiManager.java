@@ -16,13 +16,13 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class GuiManager extends Application {
-    BackgroundMusicPlayer backgroundMusicPlayer;
+    public static BackgroundMusicPlayer backgroundMusicPlayer;
     private static Stage stage;
     private static Scene scene;
     public static final double PRESS_SCALE = 0.95;
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/de/infokurs/Info_Projekt_12_2_2026/screens/main_page.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/de/infokurs/Info_Projekt_12_2_2026/screens/title_screen.fxml"));
 
         Scene scene = new Scene(root, 700, 400);
         stage.setScene(scene);
@@ -31,18 +31,19 @@ public class GuiManager extends Application {
         stage.setTitle(SaveManager.getCurrent().NAME);
         stage.setResizable(false);
         stage.show();
-        System.out.println(scene.getWidth() + " x " + scene.getHeight());
 
          backgroundMusicPlayer =
                 new BackgroundMusicPlayer("/assets/music");
 
-        backgroundMusicPlayer.setVolume(0.1);
+        backgroundMusicPlayer.setVolume(SaveManager.getSaveData().getVolume());
         backgroundMusicPlayer.play();
     }
     @Override
     public void stop() {
         SaveManager.save(SaveManager.getCurrent());
-        System.out.println("close");
+    }
+    public static BackgroundMusicPlayer getBackgroundMusicPlayer() {
+        return backgroundMusicPlayer;
     }
     public static void switchToScene(MouseEvent event, String sceneName)  {
         Parent root = null;

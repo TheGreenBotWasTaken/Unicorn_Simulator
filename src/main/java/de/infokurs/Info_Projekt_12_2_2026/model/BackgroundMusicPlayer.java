@@ -17,7 +17,7 @@ public class BackgroundMusicPlayer {
     private final Random random = new Random();
 
     private MediaPlayer mediaPlayer;
-    private double volume = 0.5;
+    private double volume;
     private int lastSongIndex = -1;
 
     private static final String EASTER_EGG_FILE = "nothingtoseeheremovealong.mp3";
@@ -56,7 +56,7 @@ public class BackgroundMusicPlayer {
             if (file.isFile() && file.getName().toLowerCase().endsWith(".mp3")) {
 
                 if (file.getName().equalsIgnoreCase(EASTER_EGG_FILE)) {
-                    easterEggFile = file; // store separately
+                    easterEggFile = file;
                     continue;
                 }
 
@@ -72,7 +72,7 @@ public class BackgroundMusicPlayer {
     private void playNext() {
         if (songs.isEmpty()) return;
 
-        if (random.nextInt(100) == 0) {
+        if (random.nextInt(100) == 1) {
             File easterEgg = findEasterEgg();
 
             if (easterEgg != null) {
@@ -109,7 +109,7 @@ public class BackgroundMusicPlayer {
         mediaPlayer.setOnEndOfMedia(this::playNext);
         mediaPlayer.play();
 
-        System.out.println("Now playing: " + file.getName());
+        System.out.println("Now playing: \"" + file.getName() + "\"");
     }
 
     private File findEasterEgg() {

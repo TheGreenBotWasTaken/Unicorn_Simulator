@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.infokurs.Info_Projekt_12_2_2026.view.guiControllers.TitleScreenController">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="700.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../assets/title_screen_background.png" />
+         </image>
+      </ImageView>
+      <GridPane>
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="424.39996337890625" minWidth="10.0" prefWidth="319.2000244140625" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="424.39996337890625" minWidth="10.0" prefWidth="319.2000244140625" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="384.7999877929687" minWidth="10.0" prefWidth="381.59997558593744" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="176.8" minHeight="10.0" percentHeight="50.0" prefHeight="70.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="331.2" minHeight="10.0" percentHeight="30.0" prefHeight="300.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="331.2" minHeight="10.0" percentHeight="30.0" prefHeight="300.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="331.2" minHeight="10.0" percentHeight="30.0" prefHeight="300.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ImageView fx:id="quitButton" fitHeight="150.0" fitWidth="200.0" onMousePressed="#quitButtonPressed" onMouseReleased="#quitButtonReleased" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+               <image>
+                  <Image url="@../../../../assets/save_and_quit.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="startButton" fitHeight="150.0" fitWidth="200.0" onMousePressed="#startButtonPressed" onMouseReleased="#startButtonReleased" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@../../../../assets/start_button.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+               <image>
+                  <Image url="@../../../../assets/logo.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="settingsButton" fitHeight="150.0" fitWidth="200.0" onMousePressed="#settingsButtonPressed" onMouseReleased="#settingButtonReleased" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+               <image>
+                  <Image url="@../../../../assets/settings.png" />
+               </image>
+            </ImageView>
+         </children>
+      </GridPane>
+   </children>
+</StackPane>

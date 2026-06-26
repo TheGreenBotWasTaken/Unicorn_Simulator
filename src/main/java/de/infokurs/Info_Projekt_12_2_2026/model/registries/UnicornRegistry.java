@@ -23,7 +23,7 @@ public class UnicornRegistry {
         if (frozen) throw new IllegalStateException("Registry is frozen.");
         if (unicorns.containsKey(unicorn.getId())) {
             throw new IllegalArgumentException(
-                    "Unicorn with id \"" + unicorn.getId() + "'\" is already registered."
+                    "de.infokurs.Info_Projekt_12_2_2026.model.Unicorn with id \"" + unicorn.getId() + "'\" is already registered."
             );
         }
         unicorns.put(unicorn.getId(), unicorn);

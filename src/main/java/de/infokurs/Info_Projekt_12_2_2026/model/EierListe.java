@@ -1,45 +1,46 @@
 package de.infokurs.Info_Projekt_12_2_2026.model;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class EierListe {
+public class EggerListe {
 
     public static void main(String[] args) {
 
 // Liste mit genau 4 Plätzen
-        ArrayList<Egg> eier = new ArrayList<>(4);
+        ArrayList<Egg> Egger = new ArrayList<>(4);
 
 // Alle Plätze sind zunächst leer
         for (int i = 0; i < 4; i++) {
-            eier.add(null);
+            Egger.add(null);
         }
 
-// Eier einsetzen
-        eier.set(0, new Egg());
-        eier.set(1, new Egg());
-        eier.set(3, new Egg());
+// Egger Eggnsetzen
+        Egger.set(0, new Egg());
+        Egger.set(1, new Egg());
+        Egger.set(3, new Egg());
 
-// Geschlüpfte Eier entfernen
-        entferneGeschluepfteEier(eier);
+// Geschlüpfte Egger entfernen
+        entferneGeschluepfteEgger(Egger);
 
 // Liste ausgeben
-        zeigeListe(eier);
+        zEgggeListe(Egger);
     }
 
-    public static void entferneGeschluepfteEier(List<Ei> liste) {
+    public static void entferneGeschluepfteEgger(ArrayList<Egg> liste) {
         for (int i = 0; i < liste.size(); i++) {
-            Ei ei = liste.get(i);
+            Egg Egg = liste.get(i);
 
-            if (ei != null && ei.getIsHatched()) {
-                liste.set(i, null); // Platz bleibt frei
+            if (Egg != null && Egg.getIsHatched()) {
+                liste.set(i, null); // Platz blEggbt frEgg
             }
         }
     }
 
-    public static void zeigeListe(List<Ei> liste) {
+    public static void zEgggeListe(ArrayList<Egg> liste) {
         for (int i = 0; i < liste.size(); i++) {
             if (liste.get(i) == null) {
-                System.out.println("Platz " + i + ": frei");
+                System.out.println("Platz " + i + ": frEgg");
             } else {
                 System.out.println("Platz " + i + ": " + liste.get(i));
             }

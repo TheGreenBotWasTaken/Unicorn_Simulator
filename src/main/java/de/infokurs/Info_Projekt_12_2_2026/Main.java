@@ -3,7 +3,6 @@ package de.infokurs.Info_Projekt_12_2_2026;
 import de.infokurs.Info_Projekt_12_2_2026.model.Forest;
 import de.infokurs.Info_Projekt_12_2_2026.model.SaveManager;
 import de.infokurs.Info_Projekt_12_2_2026.model.Temple;
-import de.infokurs.Info_Projekt_12_2_2026.model.unicorns.UnicornInit;
 import de.infokurs.Info_Projekt_12_2_2026.view.GuiManager;
 import javafx.application.Application;
 
@@ -16,7 +15,6 @@ public class Main {
         SaveManager saveManager = new SaveManager();
         Temple temple = new Temple();
         Forest forest = new Forest();
-        UnicornInit.init();
         Application.launch(GuiManager.class, args);
     }
 

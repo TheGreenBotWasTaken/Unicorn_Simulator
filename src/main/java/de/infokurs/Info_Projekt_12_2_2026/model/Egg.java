@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 import javax.imageio.ImageIO;
 import java.io.InputStream;
 
-public class Egg {
+public class Egg implements Rollable{
 	private static final float BASE_TIME = 10;
 	private BufferedImage currentTexture;
 	Rarity rarity;
@@ -190,4 +190,14 @@ public class Egg {
 			e.printStackTrace();
 			}
 		}
+
+	@Override
+	public int weight() {
+		return 0;
+	}
+
+	@Override
+	public double mult() {
+		return 0;
+	}
 }

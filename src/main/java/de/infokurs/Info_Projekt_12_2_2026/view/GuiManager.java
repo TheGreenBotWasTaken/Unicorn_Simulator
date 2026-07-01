@@ -41,6 +41,7 @@ public class GuiManager extends Application {
     @Override
     public void stop() {
         SaveManager.save(SaveManager.getCurrent());
+        System.exit(0);
     }
     public static BackgroundMusicPlayer getBackgroundMusicPlayer() {
         return backgroundMusicPlayer;

@@ -19,4 +19,14 @@ public class FireUnicornExample extends Unicorn{
     public double getRps() {
         return 12345;
     }
+
+    @Override
+    public Unicorn newInstance() {
+        return new FireUnicornExample();
+    }
+
+    @Override
+    public String getTexturePath() {
+        return "assets/textures/tree-1.png";
+    }
 }

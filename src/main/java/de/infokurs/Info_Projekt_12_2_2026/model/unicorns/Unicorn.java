@@ -1,8 +1,9 @@
 package de.infokurs.Info_Projekt_12_2_2026.model.unicorns;
 
 import de.infokurs.Info_Projekt_12_2_2026.model.Egg;
+import de.infokurs.Info_Projekt_12_2_2026.model.Rollable;
 
-public abstract class Unicorn { // future unicorns should extend this, be singletons, register in UnicornRegistry
+public abstract class Unicorn implements Rollable { // future unicorns should extend this, be singletons, register in UnicornRegistry
     private final String ID; // NO SPACES
     private final String DISPLAY_NAME; // HERE SPACES
     private String name;
@@ -33,4 +34,16 @@ public abstract class Unicorn { // future unicorns should extend this, be single
     public Egg layEgg() {
         return new Egg(RARITY, level);
     }
+    @Override
+    public int weight() {
+        return RARITY.weight();
+    }
+
+    public abstract Unicorn newInstance();
+    @Override
+    public double mult() {
+        return RARITY.mult();
+    }
+
+    public abstract String getTexturePath();
 }

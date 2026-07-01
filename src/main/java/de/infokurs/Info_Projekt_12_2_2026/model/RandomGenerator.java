@@ -4,43 +4,53 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class RandomGenerator {
-double luck;
-    record Item(String rarity, int weight, int mult) {}
-    public RandomGenerator(double luckNew) {
-    luck = luckNew;
-    add("common",500,0);//common
-    add("unusual",250,0);//unusual
-    add("rare",150,1);//rare
-    add("epic",89,2);//epic
-    add("legendary",10,3);//legendary
-    add("ultra",1,4);//ultra
-}
-void setLuck(double luck){
-    this.luck = luck;
-}
+public class RandomGenerator<T extends Rollable> {
 
-
-
-    private final List<Item> table = new ArrayList<>();
+    private final List<T> table = new ArrayList<>();
     private final Random random = new Random();
+    private double luck;
 
-    public void add(String rarity, int weight, int mult) {
-        table.add(new Item(rarity, weight, mult));
+    public RandomGenerator(double luck) {
+        this.luck = luck;
     }
-    public String roll(){
-        if (table.isEmpty()){throw new IllegalStateException("Table is empty");}
-        double total = 0;
-        for  (Item item : table){total += effectiveWeight(item, luck);}
-        double r =  random.nextDouble() *total;
-        for  (Item item : table){r -= item.weight;
-        if(r <= 0){return item.rarity;}
+
+    public RandomGenerator() {
+        this(1.0);
+    }
+
+    public void setLuck(double luck) {
+        this.luck = luck;
+    }
+
+    public double getLuck() {
+        return luck;
+    }
+
+    public void add(T item) {
+        table.add(item);
+    }
+
+    public T roll() {
+        if (table.isEmpty()) {
+            throw new IllegalStateException("Table is empty");
         }
-        return table.getLast().rarity();
+
+        double total = 0;
+        for (T item : table) {
+            total += effectiveWeight(item);
+        }
+
+        double r = random.nextDouble() * total;
+        for (T item : table) {
+            r -= effectiveWeight(item);
+            if (r <= 0) {
+                return item;
+            }
+        }
+        return table.get(table.size() - 1);
     }
 
-    private double effectiveWeight(Item item, double luck){
-        return item.weight * Math.pow(luck, item.mult);
+    private double effectiveWeight(T item) {
+        return item.weight() * Math.pow(luck, item.mult());
     }
-
 }

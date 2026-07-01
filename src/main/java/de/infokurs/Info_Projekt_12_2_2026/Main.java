@@ -12,9 +12,9 @@ public class Main {
     static Forest forest;
 
     public static void main(String[] args) {
-        SaveManager saveManager = new SaveManager();
-        Temple temple = new Temple();
-        Forest forest = new Forest();
+        saveManager = new SaveManager();
+        temple = new Temple();
+        forest = new Forest(temple);
         Application.launch(GuiManager.class, args);
     }
 
@@ -23,7 +23,7 @@ public class Main {
     }
 
     public static void setForest(Forest forest) {
-        forest = forest;
+        Main.forest = forest;
     }
 
     public static Temple getTemple() {

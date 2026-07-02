@@ -27,6 +27,6 @@ public class FireUnicornExample extends Unicorn{
 
     @Override
     public String getTexturePath() {
-        return "assets/textures/tree-1.png";
+        return "assets/textures/unicorn_1.png";
     }
 }

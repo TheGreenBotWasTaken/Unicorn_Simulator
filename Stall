@@ -1,0 +1,80 @@
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class Stable {
+
+    private static final int MAX_CAPACITY = 20;
+
+    private final List<Unicorn> unicorns;
+    private final RainbowGenerator rainbowGenerator;
+
+    public Stable() {
+        this.unicorns = new ArrayList<>();
+        this.rainbowGenerator = new RainbowGenerator();
+    }
+
+    /**
+     * Fügt ein Einhorn zum Stall hinzu, sofern genug Platz vorhanden ist.
+     * Startet den Regenbogen-Generator, wenn das erste Einhorn hinzugefügt wird.
+    */
+    public boolean addUnicorn(Unicorn unicorn) {
+       if (unicorns.size() >= MAX_CAPACITY) {
+            System.out.println("Der Stall ist voll! " + unicorn.getName() + "kann nichtmehr hinzugefügt werden");
+            return false;
+        }
+        else{
+        unicorns.add(unicorn);
+        rainbowGenerator.start();
+        System.out.println(unicorn.getName() + " wurde zum Stall hinzugefügt.");
+        return true;
+        }
+
+    }
+
+    /**
+     * Entfernt ein Einhorn anhand seines Namens aus dem Stall.
+     * Stoppt den Regenbogen-Generator, sobald der Stall dadurch leer wird.
+     */
+    public boolean removeUnicorn(String name) {
+        Unicorn unicorn = findUnicornByName(name);
+
+        if (unicorn == null) {
+            System.out.println("Das Einhorn namens" + name + " ist nicht im Stall vorhanden.");
+            return false;
+        }
+        else{
+        unicorns.remove(unicorn);
+        rainbowGenerator.stop();
+        System.out.println(unicorn.getName() + " wurde aus dem Satll entfernt.");
+        return true;
+        }  
+    }
+
+    /**
+     * Sucht ein Einhorn im Stall anhand seines Namens.
+     */
+    public Unicorn findUnicornByName(String name) {
+        for (Unicorn unicorn : unicorns) {
+            if (unicorn.getName().equalsIgnoreCase(name)) {
+                return unicorn;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Gibt eine unveränderliche Ansicht aller Einhörner zurück, die sich aktuell im Stall befinden.
+     */
+    public List<Unicorn> getUnicorns() {
+        return List.copyOf(unicorns);
+    }
+
+    public int getCurrentSize() {
+        return unicorns.size();
+    }
+
+    public boolean isFull() {
+        return unicorns.size() >= MAX_CAPACITY;
+    }
+}

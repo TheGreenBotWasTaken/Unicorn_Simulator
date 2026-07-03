@@ -2,37 +2,21 @@ package de.infokurs.Info_Projekt_12_2_2026;
 
 import de.infokurs.Info_Projekt_12_2_2026.model.Forest;
 import de.infokurs.Info_Projekt_12_2_2026.model.SaveManager;
+import de.infokurs.Info_Projekt_12_2_2026.model.Shop;
 import de.infokurs.Info_Projekt_12_2_2026.model.Temple;
 import de.infokurs.Info_Projekt_12_2_2026.view.GuiManager;
 import javafx.application.Application;
 
 public class Main {
     static SaveManager saveManager;
-    static Temple temple;
-    static Forest forest;
+
 
     public static void main(String[] args) {
         saveManager = new SaveManager();
-        temple = new Temple();
-        forest = new Forest(temple);
+
         Application.launch(GuiManager.class, args);
     }
 
-    public static Forest getForest() {
-        return forest;
-    }
-
-    public static void setForest(Forest forest) {
-        Main.forest = forest;
-    }
-
-    public static Temple getTemple() {
-        return temple;
-    }
-
-    public static void setTemple(Temple temple) {
-        temple = temple;
-    }
 
     public static SaveManager getSaveManager() {
         return saveManager;

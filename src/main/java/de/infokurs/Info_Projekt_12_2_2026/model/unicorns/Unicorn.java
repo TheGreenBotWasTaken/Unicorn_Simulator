@@ -1,9 +1,9 @@
 package de.infokurs.Info_Projekt_12_2_2026.model.unicorns;
 
 import de.infokurs.Info_Projekt_12_2_2026.model.Egg;
-import de.infokurs.Info_Projekt_12_2_2026.model.Rollable;
+import de.infokurs.Info_Projekt_12_2_2026.model.BuyableItem;
 
-public abstract class Unicorn implements Rollable { // future unicorns should extend this, be singletons, register in UnicornRegistry
+public abstract class Unicorn implements BuyableItem { // future unicorns should extend this, be singletons, register in UnicornRegistry
     private final String ID; // NO SPACES
     private final String DISPLAY_NAME; // HERE SPACES
     private String name;
@@ -16,7 +16,7 @@ public abstract class Unicorn implements Rollable { // future unicorns should ex
         this.RARITY = rarity;
         this.level = baseLevel;
     }
-    public abstract int    getBaseCost();
+    public abstract int    getBasePrice();
     public abstract double getRps();
 
     public Rarity getRarity() {

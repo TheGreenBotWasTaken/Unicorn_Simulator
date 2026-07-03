@@ -25,7 +25,7 @@
    <children>
       <ImageView fx:id="shopButton" fitHeight="136.0" fitWidth="147.0" focusTraversable="true" onMousePressed="#shopButtonPressed" onMouseReleased="#shopButtonReleased" pickOnBounds="true" preserveRatio="true" smooth="false" GridPane.halignment="LEFT" GridPane.valignment="TOP">
          <image>
-            <Image url="@../../../../assets/shop.png" />
+            <Image url="@../../../../assets/textures/gui/shop.png" />
          </image>
          <viewport>
             <Rectangle2D />
@@ -36,7 +36,7 @@
       </ImageView>
       <ImageView fx:id="stallButton" fitHeight="192.0" fitWidth="265.0" focusTraversable="true" onMousePressed="#stallButtonPressed" onMouseReleased="#stallButtonReleased" pickOnBounds="true" preserveRatio="true" smooth="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <image>
-            <Image url="@../../../../assets/stall.png" />
+            <Image url="@../../../../assets/textures/gui/stall.png" />
          </image>
          <viewport>
             <Rectangle2D />
@@ -44,7 +44,7 @@
       </ImageView>
       <ImageView fx:id="templeButton" fitHeight="122.0" fitWidth="140.0" focusTraversable="true" onMousePressed="#templeButtonPressed" onMouseReleased="#templeButtonReleased" pickOnBounds="true" preserveRatio="true" smooth="false" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
          <image>
-            <Image url="@../../../../assets/temple.png" />
+            <Image url="@../../../../assets/textures/gui/temple.png" />
          </image>
          <viewport>
             <Rectangle2D />
@@ -52,7 +52,7 @@
       </ImageView>
       <ImageView fx:id="breedingButton" fitHeight="117.0" fitWidth="148.0" focusTraversable="true" onMousePressed="#breedingButtonPressed" onMouseReleased="#breedingButtonReleased" pickOnBounds="true" preserveRatio="true" smooth="false" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
          <image>
-            <Image url="@../../../../assets/breeding.png" />
+            <Image url="@../../../../assets/textures/gui/breeding.png" />
          </image>
          <viewport>
             <Rectangle2D />
@@ -60,7 +60,7 @@
       </ImageView>
       <ImageView fx:id="unicornButton" fitHeight="100.0" fitWidth="104.0" focusTraversable="true" onMousePressed="#unicornButtonMousePressed" onMouseReleased="#unicornButtonMouseReleased" pickOnBounds="true" preserveRatio="true" smooth="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <image>
-            <Image url="@../../../../assets/rainbow.png" />
+            <Image url="@../../../../assets/textures/gui/rainbow.png" />
          </image>
          <viewport>
             <Rectangle2D />
@@ -68,7 +68,7 @@
       </ImageView>
       <ImageView fx:id="forestButton" fitHeight="238.0" fitWidth="153.0" focusTraversable="true" onMousePressed="#forestButtonPressed" onMouseReleased="#forestButtonReleased" pickOnBounds="true" preserveRatio="true" smooth="false" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.rowSpan="2" GridPane.valignment="BOTTOM">
          <image>
-            <Image url="@../../../../assets/forest.png" />
+            <Image url="@../../../../assets/textures/gui/forest.png" />
          </image>
          <viewport>
             <Rectangle2D />
@@ -78,7 +78,7 @@
          <children>
             <ImageView fitHeight="108.0" fitWidth="288.0" layoutX="14.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="7.0">
                <image>
-                  <Image url="@../../../../assets/frame.png" />
+                  <Image url="@../../../../assets/textures/gui/frame.png" />
                </image>
             </ImageView>
             <Label fx:id="rainbowLabel" alignment="CENTER" layoutX="11.0" layoutY="15.0" prefHeight="80.0" prefWidth="295.0" text="current raeinbowes: 0" textAlignment="CENTER">

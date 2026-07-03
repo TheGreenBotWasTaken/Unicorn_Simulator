@@ -19,7 +19,7 @@
 
         <ImageView fx:id="backButton" fitHeight="150.0" fitWidth="200.0" layoutX="6.0" layoutY="7.0" onMousePressed="#backButtonPressed" onMouseReleased="#backButtonReleased" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../../../assets/back.png" />
+                <Image url="@../../../../assets/textures/gui/back.png" />
             </image>
         </ImageView>
     </children>

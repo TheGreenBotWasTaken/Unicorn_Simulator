@@ -6,6 +6,7 @@ import com.google.gson.GsonBuilder;
 import java.io.*;
 
 public class SaveManager {
+    private static SaveManager INSTANCE;
     private static final String SAVE_FILE = "savestate.json";
     private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
     private static SaveData current = load();
@@ -23,6 +24,14 @@ public class SaveManager {
     }
     public static SaveData getSaveData() {
         return current;
+    }
+
+    public static SaveManager getInstance() {
+        if(INSTANCE == null) {
+            INSTANCE = new SaveManager();
+        }
+
+        return INSTANCE;
     }
 
     public static SaveData load() {

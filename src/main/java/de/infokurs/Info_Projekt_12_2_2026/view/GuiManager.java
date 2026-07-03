@@ -1,7 +1,6 @@
 package de.infokurs.Info_Projekt_12_2_2026.view;
 
 import de.infokurs.Info_Projekt_12_2_2026.model.BackgroundMusicPlayer;
-import de.infokurs.Info_Projekt_12_2_2026.model.SaveData;
 import de.infokurs.Info_Projekt_12_2_2026.model.SaveManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -27,7 +26,7 @@ public class GuiManager extends Application {
         Scene scene = new Scene(root, 700, 400);
         stage.setScene(scene);
 
-        stage.getIcons().add(new Image(getClass().getResource("/assets/icon.png").toExternalForm()));
+        stage.getIcons().add(new Image(getClass().getResource("/assets/textures/gui/icon.png").toExternalForm()));
         stage.setTitle(SaveManager.getCurrent().NAME);
         stage.setResizable(false);
         stage.show();

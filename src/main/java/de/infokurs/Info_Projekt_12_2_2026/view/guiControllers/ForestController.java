@@ -44,22 +44,19 @@ public class ForestController {
 
     @FXML
     public void initialize() {
-        forest = Main.getForest(); // long-lived singleton, NOT "new Forest()" here
+        forest = Forest.getInstance();
 
         syncTimeline = new Timeline(
                 new KeyFrame(Duration.millis(200), e -> sync())
         );
         syncTimeline.setCycleCount(Timeline.INDEFINITE);
 
-        // wait until the pane has real dimensions before starting, so the
-        // first spawn batch isn't placed at (0,0)
         Platform.runLater(() -> syncTimeline.play());
     }
 
     private void sync() {
         Set<Unicorn> current = new HashSet<>(forest.getUnicorns());
 
-        // remove views for unicorns no longer present (caught or despawned)
         displayed.keySet().removeIf(u -> {
             if (!current.contains(u)) {
                 forestPane.getChildren().remove(displayed.get(u));
@@ -68,7 +65,6 @@ public class ForestController {
             return false;
         });
 
-        // add views for newly spawned unicorns
         for (Unicorn u : current) {
             if (!displayed.containsKey(u)) {
                 addUnicornView(u);
@@ -90,7 +86,6 @@ public class ForestController {
             if (forest.catchUnicorn(unicorn)) {
                 forestPane.getChildren().remove(view);
                 displayed.remove(unicorn);
-                // award currency, play animation, etc. here
             }
         });
 
@@ -98,7 +93,9 @@ public class ForestController {
         displayed.put(unicorn, view);
     }
 
-    /** Call this if you want the sync loop to pause while this screen isn't visible. */
+
+     // Call if you want the sync loop to pause while screen isn't visible
+
     public void stopSync() {
         if (syncTimeline != null) {
             syncTimeline.stop();

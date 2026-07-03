@@ -1,7 +1,7 @@
 package de.infokurs.Info_Projekt_12_2_2026.model;
 
 public class Temple {
-
+    private static Temple INSTANCE;
     double luck;
     double spawnRate;
     int despawnTime;
@@ -9,9 +9,16 @@ public class Temple {
     public Temple() {
 
         luck = 1.0;
-        spawnRate = 1.0;
+        spawnRate = 4.0;
         despawnTime = 10;
 
+    }
+    public static Temple getInstance() {
+        if(INSTANCE == null) {
+            INSTANCE = new Temple();
+        }
+
+        return INSTANCE;
     }
     public double getSpawnRate() {
         return spawnRate;

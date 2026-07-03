@@ -8,33 +8,38 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Forest {
-
-    private final Temple temple;
+    private static Forest INSTANCE;
     private final RandomGenerator<Unicorn> randomGenerator;
     private final ArrayList<Unicorn> unicorns;
     private final Map<Unicorn, Long> spawnTimes;
-
+    private Temple temple;
     private int maxSlots = 5;
     private int despawnTime;
 
-    public Forest(Temple temple) {
-        System.out.println("[Forest] constructing...");
-
-        this.temple = temple;
+    public Forest() {
+        temple = Temple.getInstance();
         randomGenerator = new RandomGenerator<>(temple.getLuck());
         unicorns = new ArrayList<>();
         spawnTimes = new LinkedHashMap<>();
         despawnTime = temple.getDespawnTime();
 
-        System.out.println("[Forest] initial luck=" + temple.getLuck()
-                + " despawnTime=" + despawnTime
-                + " maxSlots=" + maxSlots);
+        System.out.println("[Forest] initial luck: " + temple.getLuck()
+                + " despawnTime: " + despawnTime
+                + " maxSlots: " + maxSlots);
 
         setupGenerator();
         spawnThread.start();
         despawnThread.start();
 
         System.out.println("[Forest] spawnThread and despawnThread started");
+    }
+
+    public static Forest getInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new Forest();
+        }
+
+        return INSTANCE;
     }
 
     private void setupGenerator() {
@@ -135,16 +140,14 @@ public class Forest {
             System.out.println("[Forest] spawned " + unicorn + " (slots now " + unicorns.size() + "/" + maxSlots + ")");
         }
     }
-
-    /**
-     * Called by the UI when the player clicks/catches a unicorn.
-     */
+    
     public boolean catchUnicorn(Unicorn unicorn) {
         synchronized (unicorns) {
             spawnTimes.remove(unicorn);
             boolean removed = unicorns.remove(unicorn);
             System.out.println("[Forest] catchUnicorn(" + unicorn + ") -> " + removed);
             return removed;
+            //ADD TO STABLE HERE
         }
     }
 

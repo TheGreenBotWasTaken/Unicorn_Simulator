@@ -140,14 +140,14 @@ public class Forest {
             System.out.println("[Forest] spawned " + unicorn + " (slots now " + unicorns.size() + "/" + maxSlots + ")");
         }
     }
-    
+
     public boolean catchUnicorn(Unicorn unicorn) {
         synchronized (unicorns) {
             spawnTimes.remove(unicorn);
             boolean removed = unicorns.remove(unicorn);
             System.out.println("[Forest] catchUnicorn(" + unicorn + ") -> " + removed);
+            Stable.getInstance().addUnicorn(unicorn);
             return removed;
-            //ADD TO STABLE HERE
         }
     }
 

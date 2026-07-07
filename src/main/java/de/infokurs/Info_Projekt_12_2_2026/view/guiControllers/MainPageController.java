@@ -66,12 +66,15 @@ public class MainPageController {
                 new KeyFrame(Duration.millis(speed), e -> {
                     hue = (hue + 1) % 360;
                     rainbowLabel.setTextFill(Color.hsb(hue, 1.0, 1.0));
+                    rainbowLabel.setText(
+                            "Current rainbows: " +
+                                    UnicornNumberFormatter.format(RainbowManager.getInstance().getRainbows()));
                 })
         );
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
 
-        rainbowLabel.setText("current reighnbowes: " + UnicornNumberFormatter.format(RainbowManager.getRainbows()));
+        rainbowLabel.setText("current reighnbowes: " + UnicornNumberFormatter.format(RainbowManager.getInstance().getRainbows()));
     }
 
     @FXML
@@ -110,10 +113,13 @@ public class MainPageController {
     }
     @FXML
     void unicornButtonMousePressed(MouseEvent event) {
-        RainbowManager.addRainbows(1);
-        rainbowLabel.setText("current reighnbowes: " + UnicornNumberFormatter.format(RainbowManager.getRainbows()));
-        System.out.println(RainbowManager.getRainbows());
+        RainbowManager.getInstance().addRainbows(1);
+        updateLabel();
+        System.out.println(RainbowManager.getInstance().getRainbows());
         GuiManager.scale((ImageView) event.getSource(), GuiManager.PRESS_SCALE);
+    }
+    public void updateLabel() {
+        rainbowLabel.setText("current reighnbowes: " + UnicornNumberFormatter.format(RainbowManager.getInstance().getRainbows()));
     }
 
     @FXML

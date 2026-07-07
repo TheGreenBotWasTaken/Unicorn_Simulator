@@ -1,16 +1,23 @@
 package de.infokurs.Info_Projekt_12_2_2026.model;
 
 public class RainbowManager {
+    private static RainbowManager INSTANCE;
     private static SaveData current = SaveManager.getCurrent();
-    public static void addRainbows(int amount) {
+    public void addRainbows(int amount) {
         current.setRainbows(current.getRainbows() + amount);
     }
 
-    public static long getRainbows() {
+    public long getRainbows() {
         return current.getRainbows();
     }
+    public static RainbowManager getInstance() {
+        if(INSTANCE == null) {
+            INSTANCE = new RainbowManager();
+        }
 
-    public static void setRainbows(int rainbows) {
+        return INSTANCE;
+    }
+    public void setRainbows(int rainbows) {
         current.setRainbows(rainbows);
     }
 }

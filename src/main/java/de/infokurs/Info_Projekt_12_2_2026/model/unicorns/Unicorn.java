@@ -17,7 +17,7 @@ public abstract class Unicorn implements BuyableItem { // future unicorns should
         this.level = baseLevel;
     }
     public abstract int    getBasePrice();
-    public abstract double getRps();
+    public abstract int getRps();
 
     public Rarity getRarity() {
         return RARITY;

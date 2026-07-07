@@ -16,7 +16,7 @@ public class FireUnicornExample extends Unicorn{
     }
 
     @Override
-    public double getRps() {
+    public int getRps() {
         return 12345;
     }
 

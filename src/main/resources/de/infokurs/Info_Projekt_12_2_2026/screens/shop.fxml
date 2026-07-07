@@ -1,22 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="de.infokurs.Info_Projekt_12_2_2026.view.guiControllers.ShopController"
-            prefHeight="400.0" prefWidth="700.0">
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.infokurs.Info_Projekt_12_2_2026.view.guiControllers.ShopController">
     <children>
         <ImageView fx:id="backButton" fitHeight="150.0" fitWidth="200.0" layoutX="6.0" layoutY="7.0" onMousePressed="#backButtonPressed" onMouseReleased="#backButtonReleased" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../../../assets/textures/gui/back.png" />
             </image>
         </ImageView>
+      <Text layoutX="608.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MONETEN: 0" wrappingWidth="84.560546875" />
     </children>
 </AnchorPane>

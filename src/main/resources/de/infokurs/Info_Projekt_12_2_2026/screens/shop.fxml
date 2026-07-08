@@ -3,15 +3,21 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.infokurs.Info_Projekt_12_2_2026.view.guiControllers.ShopController">
+<AnchorPane prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.infokurs.Info_Projekt_12_2_2026.view.guiControllers.ShopController">
     <children>
         <ImageView fx:id="backButton" fitHeight="150.0" fitWidth="200.0" layoutX="6.0" layoutY="7.0" onMousePressed="#backButtonPressed" onMouseReleased="#backButtonReleased" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../../../assets/textures/gui/back.png" />
             </image>
         </ImageView>
-      <Text layoutX="608.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MONETEN: 0" wrappingWidth="84.560546875" />
+        <Text fx:id="moneyText" layoutX="546.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MONETEN: 0" wrappingWidth="223.59991455078125">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font></Text>
+        <HBox fx:id="offersBox" layoutX="20.0" layoutY="150.0" prefHeight="220.0" prefWidth="660.0" spacing="15.0" />
     </children>
 </AnchorPane>

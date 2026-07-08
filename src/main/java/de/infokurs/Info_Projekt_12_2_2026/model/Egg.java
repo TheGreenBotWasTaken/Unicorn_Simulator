@@ -7,7 +7,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.util.Duration;
 
-public class Egg implements BuyableItem {
+public class Egg {
     private static final float BASE_TIME = 10;
 
     private final String parentUnicornId; // welche Unicorn-Art schlüpft daraus
@@ -44,16 +44,14 @@ public class Egg implements BuyableItem {
         return textureStage;
     }
 
-    /**
-     * Liefert den Ressourcen-Pfad zur aktuellen Ei-Textur, abhängig von Rarity und Rissstadium.
-     */
+
     public String getEggTexturePath() {
         return ("/assets/textures/eggs/egg_" + rarity.name() + "_" + textureStage + ".png").toLowerCase();
     }
 
     public void startHatching() {
         if (timeline != null || hatched) {
-            return; // läuft bereits oder ist schon fertig
+            return;
         }
 
         timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
@@ -82,9 +80,7 @@ public class Egg implements BuyableItem {
         }
     }
 
-    /**
-     * Erzeugt das geschlüpfte Unicorn. Nur gültig, wenn isHatched() true ist.
-     */
+
     public Unicorn hatch() {
         if (!hatched) {
             throw new IllegalStateException("Das Ei ist noch nicht bereit zum Schlüpfen.");
@@ -92,23 +88,4 @@ public class Egg implements BuyableItem {
         return UnicornFactory.createById(parentUnicornId);
     }
 
-    @Override
-    public int weight() {
-        return 0;
-    }
-
-    @Override
-    public double mult() {
-        return 0;
-    }
-
-    @Override
-    public Rarity getRarity() {
-        return rarity;
-    }
-
-    @Override
-    public int getBasePrice() {
-        return 1;
-    }
 }

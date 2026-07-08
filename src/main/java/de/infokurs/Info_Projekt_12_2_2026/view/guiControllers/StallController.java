@@ -88,12 +88,13 @@ public class StallController {
         slot.setAlignment(Pos.CENTER);
         slot.setPrefWidth(SLOT_SIZE);
 
-        imageView.setOnMouseClicked(event -> onUnicornSlotClicked(unicorn));
+        imageView.setOnMouseClicked(event -> onUnicornSlotClicked(unicorn, event));
 
         return slot;
     }
 
-    private void onUnicornSlotClicked(Unicorn unicorn) {
+    private void onUnicornSlotClicked(Unicorn unicorn, MouseEvent event) {
         System.out.println(unicorn.getDisplayName() + " wurde angeklickt.");
+        GuiManager.switchToScene(event, "unicorn_profile_editor");
     }
 }

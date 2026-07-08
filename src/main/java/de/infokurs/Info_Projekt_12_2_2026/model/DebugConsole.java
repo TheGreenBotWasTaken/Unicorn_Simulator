@@ -32,9 +32,6 @@ public class DebugConsole {
             if (line.isEmpty()) {
                 continue;
             }
-
-            // Auf dem FX Thread ausführen, da wir Model-Objekte anfassen,
-            // die auch vom UI-Thread gelesen/geschrieben werden.
             Platform.runLater(() -> handleCommand(line));
         }
     }
@@ -45,9 +42,19 @@ public class DebugConsole {
 
         switch (command) {
             case "/egg" -> handleEggCommand(parts);
+            case "/addMoneten" -> handleMonetenCommand(parts);
             case "/help" -> printHelp();
             default -> System.out.println("Unbekannter Befehl: " + command + " (tippe /help)");
         }
+    }
+
+    private static void handleMonetenCommand(String[] parts) {
+        if (parts.length != 2) {
+            System.out.println("Verwendung: /addMoneten <amount>");
+            return;
+        }
+        int amount = Integer.parseInt(parts[1]);
+        Wallet.getInstance().add(amount);
     }
 
     private static void handleEggCommand(String[] parts) {

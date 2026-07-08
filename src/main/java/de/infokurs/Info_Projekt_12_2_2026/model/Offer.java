@@ -1,29 +1,42 @@
 package de.infokurs.Info_Projekt_12_2_2026.model;
 
 public class Offer {
-    int basePrice;
-    float visualDiscount;
-    int discountedPrice;
-    BuyableItem item;
-    int count;
-    RandomGenerator<BuyableItem> generator;
 
-    public Offer(BuyableItem item, int price, int count, float visualDiscount) {
+    private final BuyableItem item;
+    private final int count;
+    private final float discount;
+    private final int basePrice;
+    private final int discountedPrice;
+
+    public Offer(BuyableItem item, int count, float discount) {
         this.item = item;
-        this.discountedPrice = price;
         this.count = count;
-        this.visualDiscount = visualDiscount;
-        generator = new RandomGenerator<>(Temple.getInstance().getLuck()); //luck from temple of Forrest class
-        offerGen();
+        this.discount = discount;
+        this.basePrice = item.getBasePrice() * count;
+        this.discountedPrice = Math.round(basePrice * (1f - discount));
+    }
+
+    public BuyableItem getItem() {
+        return item;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public float getDiscount() {
+        return discount;
+    }
+
+    public int getBasePrice() {
+        return basePrice;
     }
 
     public int getDiscountedPrice() {
         return discountedPrice;
     }
 
-    void offerGen() {
-        item = null; //has to generate a random item from rarity droptable + price
-        basePrice = item.getBasePrice();
+    public boolean hasDiscount() {
+        return discount > 0f;
     }
-
 }

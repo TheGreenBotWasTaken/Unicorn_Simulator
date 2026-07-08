@@ -73,8 +73,6 @@ public class MainPageController {
         );
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
-
-        rainbowLabel.setText("current reighnbowes: " + UnicornNumberFormatter.format(RainbowManager.getInstance().getRainbows()));
     }
 
     @FXML

@@ -1,7 +1,6 @@
 package de.infokurs.Info_Projekt_12_2_2026.model;
 
-import de.infokurs.Info_Projekt_12_2_2026.model.unicorns.FireUnicornExample;
-import de.infokurs.Info_Projekt_12_2_2026.model.unicorns.Unicorn;
+import de.infokurs.Info_Projekt_12_2_2026.model.unicorns.*;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -43,7 +42,11 @@ public class Forest {
     }
 
     private void setupGenerator() {
-        randomGenerator.add(new FireUnicornExample());
+        randomGenerator.add(new CommonUnicorn(0,0,0));
+        randomGenerator.add(new UnusualUnicorn(0,0,0));
+        randomGenerator.add(new RareUnicorn(0,0,0));
+        randomGenerator.add(new EpicUnicorn(0,0,0));
+        randomGenerator.add(new LegendaryUnicorn(0,0,0));
         //ALLE SPAWNABLE EINHÖRNER HIER EINFÜGEN
 
         System.out.println("[Forest] generator set up");
@@ -72,7 +75,7 @@ public class Forest {
         Thread.sleep(seconds * 1000L);
 
         Unicorn template = randomGenerator.roll();
-        Unicorn unicorn = template.newInstance();
+        Unicorn unicorn = UnicornFactory.createById(template.getId());
         System.out.println("[Forest] rolled " + unicorn);
         return unicorn;
     }

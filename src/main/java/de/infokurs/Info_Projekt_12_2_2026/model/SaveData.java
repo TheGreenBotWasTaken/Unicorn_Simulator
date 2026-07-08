@@ -9,6 +9,9 @@ public class SaveData {
     public final transient float VERSION = 1.0f;
     public final transient String NAME = "UNICORN CLICKING SIMULATOR DELUXE ULTIMATE V. " + (2000 + VERSION);
 
+
+
+    private int moneten = 0;
     private long rainbows = 0;
     private double volume;
     private int money;
@@ -40,5 +43,13 @@ public class SaveData {
 
     public void setVolume(double volume) {
         this.volume = volume;
+    }
+
+    public int getMoneten() {
+        return moneten;
+    }
+
+    public void setMoneten(int moneten) {
+        this.moneten = moneten;
     }
 }

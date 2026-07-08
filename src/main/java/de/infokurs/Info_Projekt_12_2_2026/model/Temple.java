@@ -6,7 +6,7 @@ public class Temple {
     double spawnRate;
     int despawnTime;
 
-    public Temple() {
+    private Temple() {
 
         luck = 1.0;
         spawnRate = 4.0;

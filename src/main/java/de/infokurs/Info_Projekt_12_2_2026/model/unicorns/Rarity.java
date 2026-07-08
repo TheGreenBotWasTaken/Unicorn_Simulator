@@ -9,7 +9,7 @@ public enum Rarity {
     RARE(Color.LIGHTBLUE, 5, 15, 3, "Rare", 150, 1),
     EPIC(Color.PURPLE, 10, 30, 5, "Epic", 89, 2),
     LEGENDARY(Color.GOLD, 20, 50, 10, "Legendary", 10, 3),
-    ULTRA(Color.WHITE, 100, 100, -1, "ULTRA SONIC SUPER INFINITE MEGA GIGA EXTREM COOL RAINBOW", 1, 4);
+    ULTRA(Color.WHITE, 100, 100, 100, "ULTRA SONIC SUPER INFINITE MEGA GIGA EXTREMELY COOL RAINBOW", 1, 4);
 
     private final Color color;
     private final int minLevel;

@@ -109,7 +109,7 @@ public class BackgroundMusicPlayer {
         mediaPlayer.setOnEndOfMedia(this::playNext);
         mediaPlayer.play();
 
-        System.out.println("Now playing: \"" + file.getName() + "\"");
+        System.out.println("[MUSIC] Now playing: \"" + file.getName() + "\"");
     }
 
     private File findEasterEgg() {

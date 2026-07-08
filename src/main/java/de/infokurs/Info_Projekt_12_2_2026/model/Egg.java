@@ -1,80 +1,95 @@
 package de.infokurs.Info_Projekt_12_2_2026.model;
 
 import de.infokurs.Info_Projekt_12_2_2026.model.unicorns.Rarity;
-
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
-
-import javax.imageio.ImageIO;
-import java.io.InputStream;
+import de.infokurs.Info_Projekt_12_2_2026.model.unicorns.Unicorn;
+import de.infokurs.Info_Projekt_12_2_2026.model.unicorns.UnicornFactory;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.util.Duration;
 
 public class Egg implements BuyableItem {
     private static final float BASE_TIME = 10;
-    private BufferedImage currentTexture;
-    Rarity rarity;
-    int level;        //wird festgelegt durch die Elterneinhörner
-    int poptime;        //Zeit benötigt zum Schlüpfen
-    boolean hatched;
-    private ScheduledExecutorService scheduler;
-    int firstCrack;        //Zeit wann neue Textur geladen wird
-    int secondCrack;        //Zeit wann neue Textur geladen wird
 
-    public Egg(Rarity rarity, int level) {
+    private final String parentUnicornId; // welche Unicorn-Art schlüpft daraus
+    private final Rarity rarity;
+    private final int level;              // wird festgelegt durch die Elterneinhörner
+    private int poptime;                  // Zeit benötigt zum Schlüpfen
+    private final int firstCrack;
+    private final int secondCrack;
+    private boolean hatched;
+    private int textureStage;             // 1, 2 oder 3 - aktuelles Rissstadium
+
+    private transient Timeline timeline;
+
+    public Egg(Rarity rarity, int level, String parentUnicornId) {
         this.rarity = rarity;
         this.level = level;
-        poptime = (int) Math.ceil(rarity.getHatchFactor() * level * BASE_TIME / 2);
-        hatched = false;
-        firstCrack = poptime / 2;
-        secondCrack = poptime / 4;
-        setEggTexture(1);
+        this.parentUnicornId = parentUnicornId;
+        this.poptime = (int) Math.ceil(rarity.getHatchFactor() * level * BASE_TIME / 2);
+        this.hatched = false;
+        this.firstCrack = poptime / 2;
+        this.secondCrack = poptime / 4;
+        this.textureStage = 1;
     }
 
-
-    boolean getHatched() {
+    public boolean isHatched() {
         return hatched;
     }
 
-    public float getPoptime() {
+    public int getPoptime() {
         return poptime;
     }
 
-    public void startHatching() {
-        scheduler = Executors.newSingleThreadScheduledExecutor();
+    public int getTextureStage() {
+        return textureStage;
+    }
 
-        final Runnable counter = () -> {
+    /**
+     * Liefert den Ressourcen-Pfad zur aktuellen Ei-Textur, abhängig von Rarity und Rissstadium.
+     */
+    public String getEggTexturePath() {
+        return ("/assets/textures/eggs/egg_" + rarity.name() + "_" + textureStage + ".png").toLowerCase();
+    }
+
+    public void startHatching() {
+        if (timeline != null || hatched) {
+            return; // läuft bereits oder ist schon fertig
+        }
+
+        timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
             if (poptime > 0) {
                 poptime--;
 
-                if (poptime == firstCrack) {        //Läd neue Textur
-                    setEggTexture(2);
-                } else if (poptime == secondCrack) {        //Läd neue Textur
-                    setEggTexture(3);
+                if (poptime == firstCrack) {
+                    textureStage = 2;
+                } else if (poptime == secondCrack) {
+                    textureStage = 3;
                 }
             } else {
-                scheduler.shutdown();        //Ende, wenn geschlüpft
+                timeline.stop();
                 hatched = true;
             }
-        };
+        }));
 
-        scheduler.scheduleAtFixedRate(counter, 0, 1, TimeUnit.SECONDS);
-
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
     }
 
-
-    private void setEggTexture(int stage) {
-        String imagePath = "/egg_" + rarity.getName() + "_" + stage + ".png";
-        try {
-            InputStream is = getClass().getResourceAsStream(imagePath);
-
-            if (is != null) {
-                currentTexture = ImageIO.read(is);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+    public void cancelHatching() {
+        if (timeline != null) {
+            timeline.stop();
+            timeline = null;
         }
+    }
+
+    /**
+     * Erzeugt das geschlüpfte Unicorn. Nur gültig, wenn isHatched() true ist.
+     */
+    public Unicorn hatch() {
+        if (!hatched) {
+            throw new IllegalStateException("Das Ei ist noch nicht bereit zum Schlüpfen.");
+        }
+        return UnicornFactory.createById(parentUnicornId);
     }
 
     @Override

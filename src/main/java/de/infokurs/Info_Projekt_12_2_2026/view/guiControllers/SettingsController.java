@@ -32,7 +32,7 @@ public class SettingsController implements Initializable {
                 SaveManager.getSaveData().setVolume(volume);
             }
         });
-        volumeSlider.setValue(SaveManager.getCurrent().getVolume() * 100);
+        volumeSlider.setValue(SaveManager.getSaveData().getVolume() * 100);
     }
 
     @FXML

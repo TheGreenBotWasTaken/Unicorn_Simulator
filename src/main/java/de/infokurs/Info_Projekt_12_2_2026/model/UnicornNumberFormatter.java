@@ -1,5 +1,7 @@
 package de.infokurs.Info_Projekt_12_2_2026.model;
 
+import java.util.Locale;
+
 public class UnicornNumberFormatter {
 
     private static final String[] SUFFIXES = {
@@ -22,11 +24,11 @@ public class UnicornNumberFormatter {
 
         String formatted;
         if (d >= 100) {
-            formatted = String.format("%.0f", d);
+            formatted = String.format(Locale.GERMANY, "%.0f", d);
         } else if (d >= 10) {
-            formatted = String.format("%.1f", d);
+            formatted = String.format(Locale.GERMANY, "%.1f", d);
         } else {
-            formatted = String.format("%.2f", d);
+            formatted = String.format(Locale.GERMANY, "%.2f", d);
         }
 
         return formatted + SUFFIXES[suffixIndex];

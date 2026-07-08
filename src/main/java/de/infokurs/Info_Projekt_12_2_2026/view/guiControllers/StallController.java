@@ -30,6 +30,7 @@ public class StallController {
 
     @FXML
     private void initialize() {
+
         renderUnicorns();
     }
 
@@ -44,13 +45,7 @@ public class StallController {
         GuiManager.switchToScene(event, "main_page");
     }
 
-    /**
-     * Baut die Anzeige neu auf Basis der aktuell im Stall befindlichen Einhörner.
-     * Die Reihenfolge entspricht exakt der Reihenfolge in Stable.getUnicorns(),
-     * also der Reihenfolge, in der die Einhörner hinzugefügt wurden.
-     * Aufrufen, sobald sich der Inhalt des Stalls ändert (z. B. nach addUnicorn/removeUnicorn),
-     * damit die Anzeige aktuell bleibt.
-     */
+
     public void renderUnicorns() {
         unicornFlowPane.getChildren().clear();
 
@@ -60,9 +55,7 @@ public class StallController {
         }
     }
 
-    /**
-     * Erstellt eine einzelne "Inventar-Kachel" für ein Einhorn: Bild oben, Name darunter.
-     */
+
     private VBox createUnicornSlot(Unicorn unicorn) {
         ImageView imageView = new ImageView();
         imageView.setFitWidth(SLOT_SIZE);
@@ -71,9 +64,6 @@ public class StallController {
         imageView.setPickOnBounds(true);
 
         String texturePath = unicorn.getTexturePath();
-        // getResourceAsStream ist relativ zum Package der aufrufenden Klasse,
-        // außer der Pfad beginnt mit "/". Damit es unabhängig davon funktioniert,
-        // ob getTexturePath() mit oder ohne führendem Slash liefert, hier erzwingen.
         if (!texturePath.startsWith("/")) {
             texturePath = "/" + texturePath;
         }
@@ -103,10 +93,6 @@ public class StallController {
         return slot;
     }
 
-
-    /**
-     * Platzhalter für zukünftige Interaktion, z. B. eine Detailansicht öffnen.
-     */
     private void onUnicornSlotClicked(Unicorn unicorn) {
         System.out.println(unicorn.getDisplayName() + " wurde angeklickt.");
     }

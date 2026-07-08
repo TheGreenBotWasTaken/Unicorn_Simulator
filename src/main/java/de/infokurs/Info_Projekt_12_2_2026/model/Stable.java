@@ -9,7 +9,9 @@ import java.util.concurrent.TimeUnit;
 
 public class Stable {
     private static volatile Stable INSTANCE;
+
     private static final int MAX_CAPACITY = 20;
+
     private final List<Unicorn> unicorns;
 
     private final ScheduledExecutorService rainbowExecutor;
@@ -26,7 +28,6 @@ public class Stable {
     }
 
     private void generateRainbows() {
-
         int totalRps = 0;
         for (Unicorn u : unicorns) {
             totalRps += u.getRps();
@@ -48,6 +49,7 @@ public class Stable {
         }
         return result;
     }
+
 
     public boolean addUnicorn(Unicorn unicorn) {
         if (unicorns.size() >= MAX_CAPACITY) {
@@ -73,7 +75,6 @@ public class Stable {
         System.out.println(unicorn.getDisplayName() + " wurde aus dem Stall entfernt.");
         return true;
     }
-
 
     public Unicorn findUnicornByName(String name) {
         for (Unicorn unicorn : unicorns) {

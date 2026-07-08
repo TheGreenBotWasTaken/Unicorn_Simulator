@@ -3,7 +3,7 @@ package de.infokurs.Info_Projekt_12_2_2026.model.unicorns;
 import de.infokurs.Info_Projekt_12_2_2026.model.Egg;
 import de.infokurs.Info_Projekt_12_2_2026.model.BuyableItem;
 
-public abstract class Unicorn implements BuyableItem { // future unicorns should extend this, be singletons, register in UnicornRegistry
+public abstract class Unicorn implements BuyableItem { // future unicorns should extend this
     private final String ID; // NO SPACES
     private final String DISPLAY_NAME; // HERE SPACES
     private String name;
@@ -30,9 +30,8 @@ public abstract class Unicorn implements BuyableItem { // future unicorns should
     public String getId() {
         return ID;
     }
-    //lay egg method with level & rarity
     public Egg layEgg() {
-        return new Egg(RARITY, level);
+        return new Egg(RARITY, level, ID);
     }
     @Override
     public int weight() {

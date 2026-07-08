@@ -25,7 +25,7 @@ public class TitleScreenController {
     @FXML
     void quitButtonReleased(MouseEvent event) {
         GuiManager.restore((ImageView) event.getSource());
-        SaveManager.save(SaveManager.getCurrent());
+        SaveManager.save(SaveManager.getSaveData());
         System.exit(0);
     }
 

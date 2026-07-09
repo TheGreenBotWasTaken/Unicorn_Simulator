@@ -15,10 +15,19 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class GuiManager extends Application {
+
+    private static final GuiManager INSTANCE = new GuiManager();
     public static BackgroundMusicPlayer backgroundMusicPlayer;
     private static Stage stage;
     private static Scene scene;
     public static final double PRESS_SCALE = 0.95;
+
+    public static GuiManager getInstance() {
+
+        return INSTANCE;
+    }
+
+
     @Override
     public void start(Stage stage) throws IOException {
         Forest.getInstance().getClass(); //um forestloop zu starten

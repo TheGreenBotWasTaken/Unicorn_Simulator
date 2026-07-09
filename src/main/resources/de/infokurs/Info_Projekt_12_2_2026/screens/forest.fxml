@@ -17,7 +17,7 @@
               AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0"
               AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
 
-        <ImageView fx:id="backButton" fitHeight="150.0" fitWidth="200.0" layoutX="6.0" layoutY="7.0" onMousePressed="#backButtonPressed" onMouseReleased="#backButtonReleased" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="backButton" fitHeight="70.0" fitWidth="120.0" layoutX="6.0" layoutY="7.0" onMousePressed="#backButtonPressed" onMouseReleased="#backButtonReleased" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../../../assets/textures/gui/back.png" />
             </image>

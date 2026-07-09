@@ -10,7 +10,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.infokurs.Info_Projekt_12_2_2026.view.guiControllers.UnicornProfileController">
    <children>
-      <ImageView fx:id="backButton" fitHeight="150.0" fitWidth="200.0" layoutX="6.0" layoutY="7.0" onMousePressed="#backButtonPressed" onMouseReleased="#backButtonReleased" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="backButton" fitHeight="70.0" fitWidth="120.0" layoutX="6.0" layoutY="7.0" onMousePressed="#backButtonPressed" onMouseReleased="#backButtonReleased" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../assets/textures/gui/back.png" />
          </image>

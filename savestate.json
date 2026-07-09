@@ -1,18 +1,18 @@
 {
   "moneten": 99991,
-  "rainbows": 100001561,
+  "rainbows": 109865861,
   "volume": 0.101449273634648,
   "money": 0,
   "unicorns": [
     {
-      "className": "de.infokurs.Info_Projekt_12_2_2026.model.unicorns.CommonUnicorn",
+      "className": "de.infokurs.Info_Projekt_12_2_2026.model.unicorns.UltraUnicorn",
       "data": {
-        "displayName": "Common Unicorn",
+        "displayName": "Ultra Unicorn",
         "strength": 62,
         "speed": 45,
         "intelligence": 99,
-        "ID": "common_unicorn",
-        "RARITY": "COMMON",
+        "ID": "ultra_unicorn",
+        "RARITY": "ULTRA",
         "level": 1
       }
     },
@@ -109,6 +109,30 @@
         "intelligence": 26,
         "ID": "rare_unicorn",
         "RARITY": "RARE",
+        "level": 1
+      }
+    },
+    {
+      "className": "de.infokurs.Info_Projekt_12_2_2026.model.unicorns.CommonUnicorn",
+      "data": {
+        "displayName": "Common Unicorn",
+        "strength": 8,
+        "speed": 72,
+        "intelligence": 66,
+        "ID": "common_unicorn",
+        "RARITY": "COMMON",
+        "level": 1
+      }
+    },
+    {
+      "className": "de.infokurs.Info_Projekt_12_2_2026.model.unicorns.CommonUnicorn",
+      "data": {
+        "displayName": "Common Unicorn",
+        "strength": 96,
+        "speed": 52,
+        "intelligence": 92,
+        "ID": "common_unicorn",
+        "RARITY": "COMMON",
         "level": 1
       }
     }

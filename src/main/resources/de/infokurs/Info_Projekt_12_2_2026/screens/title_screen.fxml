@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.infokurs.Info_Projekt_12_2_2026.view.guiControllers.TitleScreenController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.infokurs.Info_Projekt_12_2_2026.view.guiControllers.TitleScreenController">
    <children>
       <ImageView fitHeight="400.0" fitWidth="700.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -29,22 +29,27 @@
          <children>
             <ImageView fx:id="quitButton" fitHeight="150.0" fitWidth="200.0" onMousePressed="#quitButtonPressed" onMouseReleased="#quitButtonReleased" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                <image>
-                  <Image url="@../../../../assets/textures/gui/save_and_quit.png" />
+                  <Image url="@../../../../assets/textures/gui/save_and_quit_button.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="startButton" fitHeight="150.0" fitWidth="200.0" onMousePressed="#startButtonPressed" onMouseReleased="#startButtonReleased" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+            <ImageView fx:id="startButton" fitHeight="150.0" fitWidth="200.0" onMousePressed="#startButtonPressed" onMouseReleased="#startButtonReleased" pickOnBounds="true" preserveRatio="true" smooth="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                <image>
                   <Image url="@../../../../assets/textures/gui/start_button.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+            <ImageView fx:id="logo" fitHeight="135.0" fitWidth="345.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                <image>
                   <Image url="@../../../../assets/textures/gui/logo.png" />
                </image>
             </ImageView>
             <ImageView fx:id="settingsButton" fitHeight="150.0" fitWidth="200.0" onMousePressed="#settingsButtonPressed" onMouseReleased="#settingButtonReleased" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                <image>
-                  <Image url="@../../../../assets/textures/gui/settings.png" />
+                  <Image url="@../../../../assets/textures/gui/settings_button.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="sponsorButton" fitHeight="150.0" fitWidth="200.0" onMousePressed="#sponsorButtonPressed" onMouseReleased="#sponsorButtonReleased" pickOnBounds="true" preserveRatio="true" smooth="false" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+               <image>
+                  <Image url="@../../../../assets/textures/gui/sponsor_button.png" />
                </image>
             </ImageView>
          </children>

@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.geometry.Insets?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="de.infokurs.Info_Projekt_12_2_2026.view.guiControllers.BreedingController"
-            prefHeight="400.0" prefWidth="700.0">
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.infokurs.Info_Projekt_12_2_2026.view.guiControllers.BreedingController">
     <children>
-        <ImageView fx:id="backButton" fitHeight="150.0" fitWidth="200.0" layoutX="6.0" layoutY="7.0" onMousePressed="#backButtonPressed" onMouseReleased="#backButtonReleased" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="backButton" fitHeight="70.0" fitWidth="120.0" layoutX="6.0" layoutY="7.0" onMousePressed="#backButtonPressed" onMouseReleased="#backButtonReleased" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../../../assets/textures/gui/back.png" />
             </image>
         </ImageView>
 
-        <ScrollPane fx:id="nestScrollPane" fitToWidth="true" pannable="true"
-                    AnchorPane.topAnchor="160.0" AnchorPane.leftAnchor="0.0"
-                    AnchorPane.rightAnchor="0.0" AnchorPane.bottomAnchor="0.0">
+        <ScrollPane fx:id="nestScrollPane" fitToWidth="true" layoutY="86.4" pannable="true" prefHeight="314.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="86.0">
             <content>
-                <FlowPane fx:id="nestFlowPane" hgap="12.0" vgap="12.0" prefWrapLength="680.0">
+                <FlowPane fx:id="nestFlowPane" hgap="12.0" prefWrapLength="680.0" vgap="12.0">
                     <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                     </padding>
                 </FlowPane>
             </content>
         </ScrollPane>
+      <Label layoutX="304.0" layoutY="10.0" text="Nest">
+         <font>
+            <Font name="System Bold" size="42.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

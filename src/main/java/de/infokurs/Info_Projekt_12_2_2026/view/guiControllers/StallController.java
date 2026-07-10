@@ -4,7 +4,11 @@ import de.infokurs.Info_Projekt_12_2_2026.model.Stable;
 import de.infokurs.Info_Projekt_12_2_2026.model.unicorns.Unicorn;
 import de.infokurs.Info_Projekt_12_2_2026.view.GuiManager;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
@@ -12,7 +16,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.List;
 
 public class StallController {
@@ -95,6 +101,27 @@ public class StallController {
 
     private void onUnicornSlotClicked(Unicorn unicorn, MouseEvent event) {
         System.out.println(unicorn.getDisplayName() + " wurde angeklickt.");
-        GuiManager.switchToScene(event, "unicorn_profile_editor");
+        sendData(event, unicorn);
+    }
+
+    @FXML
+    private void sendData(MouseEvent event, Unicorn unicorn) {
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.close();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource(
+                    "de/infokurs/Info_Projekt_12_2_2026/screens/unicorn_profile_editor.fxml"));
+            Parent root = loader.load();
+
+            UnicornProfileController controller = loader.getController();
+            controller.setUnicorn(unicorn);
+
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            System.err.println("Error loading unicorn_profile_editor: " + e.getMessage());
+        }
     }
 }

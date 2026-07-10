@@ -1,13 +1,13 @@
 {
-  "moneten": 99991,
-  "rainbows": 109865861,
+  "moneten": 84461,
+  "rainbows": 309742115,
   "volume": 0.101449273634648,
   "money": 0,
   "unicorns": [
     {
       "className": "de.infokurs.Info_Projekt_12_2_2026.model.unicorns.UltraUnicorn",
       "data": {
-        "displayName": "Ultra Unicorn",
+        "displayName": "Ultra",
         "strength": 62,
         "speed": 45,
         "intelligence": 99,
@@ -55,7 +55,7 @@
     {
       "className": "de.infokurs.Info_Projekt_12_2_2026.model.unicorns.LegendaryUnicorn",
       "data": {
-        "displayName": "Legendary Unicorn",
+        "displayName": "dsakkasddas",
         "strength": 40,
         "speed": 87,
         "intelligence": 14,
@@ -133,6 +133,114 @@
         "intelligence": 92,
         "ID": "common_unicorn",
         "RARITY": "COMMON",
+        "level": 1
+      }
+    },
+    {
+      "className": "de.infokurs.Info_Projekt_12_2_2026.model.unicorns.CommonUnicorn",
+      "data": {
+        "displayName": "Common Unicorn",
+        "strength": 57,
+        "speed": 24,
+        "intelligence": 96,
+        "ID": "common_unicorn",
+        "RARITY": "COMMON",
+        "level": 1
+      }
+    },
+    {
+      "className": "de.infokurs.Info_Projekt_12_2_2026.model.unicorns.CommonUnicorn",
+      "data": {
+        "displayName": "Common Unicorn",
+        "strength": 18,
+        "speed": 13,
+        "intelligence": 8,
+        "ID": "common_unicorn",
+        "RARITY": "COMMON",
+        "level": 1
+      }
+    },
+    {
+      "className": "de.infokurs.Info_Projekt_12_2_2026.model.unicorns.CommonUnicorn",
+      "data": {
+        "displayName": "Common Unicorn",
+        "strength": 31,
+        "speed": 22,
+        "intelligence": 52,
+        "ID": "common_unicorn",
+        "RARITY": "COMMON",
+        "level": 1
+      }
+    },
+    {
+      "className": "de.infokurs.Info_Projekt_12_2_2026.model.unicorns.UnusualUnicorn",
+      "data": {
+        "displayName": "Unusual Unicorn",
+        "strength": 59,
+        "speed": 92,
+        "intelligence": 10,
+        "ID": "unusual_unicorn",
+        "RARITY": "UNUSUAL",
+        "level": 1
+      }
+    },
+    {
+      "className": "de.infokurs.Info_Projekt_12_2_2026.model.unicorns.CommonUnicorn",
+      "data": {
+        "displayName": "Common Unicorn",
+        "strength": 59,
+        "speed": 46,
+        "intelligence": 46,
+        "ID": "common_unicorn",
+        "RARITY": "COMMON",
+        "level": 1
+      }
+    },
+    {
+      "className": "de.infokurs.Info_Projekt_12_2_2026.model.unicorns.CommonUnicorn",
+      "data": {
+        "displayName": "Common Unicorn",
+        "strength": 15,
+        "speed": 3,
+        "intelligence": 8,
+        "ID": "common_unicorn",
+        "RARITY": "COMMON",
+        "level": 1
+      }
+    },
+    {
+      "className": "de.infokurs.Info_Projekt_12_2_2026.model.unicorns.CommonUnicorn",
+      "data": {
+        "displayName": "Common Unicorn",
+        "strength": 20,
+        "speed": 37,
+        "intelligence": 71,
+        "ID": "common_unicorn",
+        "RARITY": "COMMON",
+        "level": 1
+      }
+    },
+    {
+      "className": "de.infokurs.Info_Projekt_12_2_2026.model.unicorns.EpicUnicorn",
+      "data": {
+        "displayName": "Epic Unicorn",
+        "strength": 79,
+        "speed": 63,
+        "intelligence": 10,
+        "ID": "epic_unicorn",
+        "RARITY": "EPIC",
+        "level": 1
+      }
+    },
+    {
+      "className": "de.infokurs.Info_Projekt_12_2_2026.model.unicorns.EpicUnicorn",
+      "data": {
+        "displayName": "Epic Unicorn",
+        "strength": 47,
+        "speed": 4,
+        "intelligence": 71,
+        "ID": "epic_unicorn",
+        "RARITY": "EPIC",
         "level": 1
       }
     }

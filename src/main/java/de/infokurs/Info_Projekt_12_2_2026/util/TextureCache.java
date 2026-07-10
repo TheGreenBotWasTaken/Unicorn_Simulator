@@ -9,12 +9,12 @@ import javafx.scene.image.WritableImage;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 
-/**
+    /**
  * Central cache for pixel-art textures.
  *
  * <p>JavaFX's {@code ImageView.smooth} property does not actually disable
  * bilinear filtering when an image is scaled (this is a known, unresolved
- * JavaFX/Prism limitation — nearest-neighbor filtering was never
+ * JavaFX/Prism limitation: nearest-neighbor filtering was never
  * implemented). This class works around that by pre-scaling every source
  * image with manual nearest-neighbor pixel duplication, and caching the
  * result so the same texture is never decoded or scaled twice.
@@ -153,13 +153,14 @@ public final class TextureCache {
     // Internal helpers
     // ------------------------------------------------------------------
 
-    private static Image loadRaw(String resourcePath) {
-        var stream = TextureCache.class.getResourceAsStream(resourcePath);
-        if (stream == null) {
-            throw new IllegalArgumentException("Texture resource not found: " + resourcePath);
+        private static Image loadRaw(String resourcePath) {
+            String normalized = resourcePath.startsWith("/") ? resourcePath : "/" + resourcePath;
+            var stream = TextureCache.class.getResourceAsStream(normalized);
+            if (stream == null) {
+                throw new IllegalArgumentException("Texture resource not found: " + normalized);
+            }
+            return new Image(stream);
         }
-        return new Image(stream);
-    }
 
     /**
      * Scales an image up by an integer factor using nearest-neighbor

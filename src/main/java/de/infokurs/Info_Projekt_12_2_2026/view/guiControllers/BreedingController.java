@@ -4,6 +4,7 @@ import de.infokurs.Info_Projekt_12_2_2026.model.Egg;
 import de.infokurs.Info_Projekt_12_2_2026.model.Nest;
 import de.infokurs.Info_Projekt_12_2_2026.model.Stable;
 import de.infokurs.Info_Projekt_12_2_2026.model.unicorns.Unicorn;
+import de.infokurs.Info_Projekt_12_2_2026.util.TextureCache;
 import de.infokurs.Info_Projekt_12_2_2026.view.GuiManager;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -28,7 +29,6 @@ public class BreedingController {
     private static final double SLOT_SIZE = 96.0;
     private static final String EMPTY_NEST_TEXTURE = "/assets/textures/pillar.png";
 
-    // Cache: einmal geladene Texturen werden wiederverwendet statt neu von der Platte gelesen
     private static final Map<String, Image> TEXTURE_CACHE = new ConcurrentHashMap<>();
 
     @FXML
@@ -116,6 +116,7 @@ public class BreedingController {
         if (pillarImage != null) {
             pillarView.setImage(pillarImage);
         }
+        TextureCache.applyScaled(pillarView, "/assets/textures/pillar.png", 2);
 
         StackPane.setAlignment(pillarView, Pos.CENTER);
         imageContainer.getChildren().add(pillarView);

@@ -5,22 +5,29 @@ public class CommonUnicorn extends Unicorn {
     private int strength;
     private int speed;
     private int intelligence;
-    public CommonUnicorn(int strength, int speed, int intelligence) {
+    private boolean shiny;
+    public CommonUnicorn(int strength, int speed, int intelligence, boolean shiny) {
         super("common_unicorn", Rarity.COMMON, 1);
         this.strength = strength;
         this.speed = speed;
         this.intelligence = intelligence;
         this.displayName = "Common Unicorn";
+        this.shiny = shiny;
+    }
+
+    @Override
+    public boolean isShiny() {
+        return shiny;
     }
 
     @Override
     public int getBasePrice() {
-        return 10;
+        return 50;
     }
 
     @Override
     public int getRps() {
-        return 1;
+        return strength * speed * 1 / 5000;
     }
 
     @Override

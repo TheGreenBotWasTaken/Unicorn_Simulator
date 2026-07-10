@@ -4,12 +4,12 @@ package de.infokurs.Info_Projekt_12_2_2026.model.unicorns;
 import javafx.scene.paint.Color;
 
 public enum Rarity {
-    COMMON(Color.PINK, 1, 5, 1, "Common", 500, 0),
-    UNUSUAL(Color.GREEN, 1, 10, 2, "Unusual", 250, 0),
-    RARE(Color.BLUE, 5, 15, 3, "Rare", 150, 1),
-    EPIC(Color.PURPLE, 10, 30, 5, "Epic", 89, 2),
-    LEGENDARY(Color.GOLD, 20, 50, 10, "Legendary", 10, 3),
-    ULTRA(Color.WHITE, 100, 100, 100, "ULTRA SONIC SUPER INFINITE MEGA GIGA EXTREMELY COOL RAINBOW", 1, 4);
+    COMMON(Color.WHITE, 1, 5, 10, "Common", 500, 0),
+    UNUSUAL(Color.PURPLE, 1, 10, 20, "Unusual", 250, 0),
+    RARE(Color.LIGHTBLUE, 5, 15, 30, "Rare", 150, 1),
+    EPIC(Color.YELLOW, 10, 30, 50, "Epic", 89, 2),
+    LEGENDARY(Color.PINK, 20, 50, 100, "Legendary", 10, 2),
+    ULTRA(Color.WHITE, 100, 100, 1000, "ULTRA SONIC SUPER INFINITE MEGA GIGA EXTREMELY COOL RAINBOW", 1, 4);
 
     private final Color color;
     private final int minLevel;

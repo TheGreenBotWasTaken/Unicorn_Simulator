@@ -1,22 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
-<?import javafx.scene.image.ImageView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="de.infokurs.Info_Projekt_12_2_2026.view.guiControllers.TempleController"
-            prefHeight="400.0" prefWidth="700.0">
-    <children>
-        <ImageView fx:id="backButton" fitHeight="70.0" fitWidth="120.0" layoutX="6.0" layoutY="7.0" onMousePressed="#backButtonPressed" onMouseReleased="#backButtonReleased" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../../../../assets/textures/gui/back.png" />
-            </image>
-        </ImageView>
-    </children>
-</AnchorPane>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.infokurs.Info_Projekt_12_2_2026.view.guiControllers.TempleController">
+   <children>
+      <ImageView fitHeight="528.0" fitWidth="711.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../assets/textures/background.png" />
+         </image>
+      </ImageView>
+      <AnchorPane prefHeight="400.0" prefWidth="725.0">
+         <children>
+            <GridPane layoutX="14.0" layoutY="95.0" prefHeight="304.0" prefWidth="658.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="133.0" minHeight="50.0" prefHeight="133.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="229.0" minHeight="180.0" prefHeight="209.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="86.0" minHeight="50.0" prefHeight="75.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <ImageView fx:id="luckTemple" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="@../../../../assets/textures/gui/temple_luck.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="spawnTemple" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="@../../../../assets/textures/gui/temple_spawn_rate.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="timeTemple" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="@../../../../assets/textures/gui/temple_time.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="luckUpgrade" fitHeight="150.0" fitWidth="200.0" onMousePressed="#buttonPressed" onMouseReleased="#luckUpgradeReleased" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                     <image>
+                        <Image url="@../../../../assets/textures/gui/sponsor_button.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="spawnUpgrade" fitHeight="150.0" fitWidth="200.0" onMousePressed="#buttonPressed" onMouseReleased="#spawnUpgradeReleased" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                     <image>
+                        <Image url="@../../../../assets/textures/gui/sponsor_button.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="timeUpgrade" fitHeight="150.0" fitWidth="200.0" onMousePressed="#buttonPressed" onMouseReleased="#timeUpgradeReleased" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                     <image>
+                        <Image url="@../../../../assets/textures/gui/sponsor_button.png" />
+                     </image>
+                  </ImageView>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label fx:id="luckLevelText" text="Temple of Luck level:">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="luckUpgradeText" contentDisplay="CENTER" prefHeight="35.0" prefWidth="243.0" text="Upgrade cost:" textAlignment="CENTER">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+                     <children>
+                        <Label fx:id="spawnLevelText" text="Temple of Spawning level:">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="spawnUpgradeText" contentDisplay="CENTER" prefHeight="35.0" prefWidth="222.0" text="Upgrade cost:" textAlignment="CENTER">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
+                     <children>
+                        <Label fx:id="timeLevelText" text="Temple of Time level:">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="timeUpgradeText" contentDisplay="CENTER" prefHeight="35.0" prefWidth="243.0" text="Upgrade cost:" textAlignment="CENTER">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </GridPane>
+            <ImageView fx:id="backButton" fitHeight="70.0" fitWidth="120.0" layoutX="21.0" layoutY="25.0" onMousePressed="#buttonPressed" onMouseReleased="#backButtonReleased" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="25.0">
+               <image>
+                  <Image url="@../../../../assets/textures/gui/back.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

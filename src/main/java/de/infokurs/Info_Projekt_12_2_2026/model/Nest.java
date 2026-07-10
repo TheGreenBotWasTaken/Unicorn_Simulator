@@ -4,7 +4,7 @@ public class Nest {
     private static volatile Nest INSTANCE;
 
     private static final int DEFAULT_CAPACITY = 4;
-    private static final int MAX_CAPACITY = 12;
+    private static final int MAX_CAPACITY = 12; //TODO: Research-Tree
 
     private final Egg[] slots;
     private int capacity;

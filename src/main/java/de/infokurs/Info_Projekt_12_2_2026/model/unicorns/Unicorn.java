@@ -5,7 +5,6 @@ import de.infokurs.Info_Projekt_12_2_2026.model.BuyableItem;
 
 public abstract class Unicorn implements BuyableItem { // future unicorns should extend this
     private final String ID; // NO SPACES
-
     private final Rarity RARITY;
     private int level;
 
@@ -14,7 +13,7 @@ public abstract class Unicorn implements BuyableItem { // future unicorns should
         this.RARITY = rarity;
         this.level = baseLevel;
     }
-
+    public abstract boolean isShiny();
     public abstract int getBasePrice();
 
     public abstract int getRps();

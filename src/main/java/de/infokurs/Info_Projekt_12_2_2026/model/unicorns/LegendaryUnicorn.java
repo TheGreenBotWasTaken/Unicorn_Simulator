@@ -5,22 +5,29 @@ public class LegendaryUnicorn extends Unicorn {
     private int strength;
     private int speed;
     private int intelligence;
-    public LegendaryUnicorn(int strength, int speed, int intelligence) {
+    private boolean shiny;
+    public LegendaryUnicorn(int strength, int speed, int intelligence, boolean shiny) {
         super("legendary_unicorn", Rarity.LEGENDARY, 1);
         this.displayName = "Legendary Unicorn";
         this.strength = strength;
         this.speed = speed;
         this.intelligence = intelligence;
+        this.shiny = shiny;
+    }
+
+    @Override
+    public boolean isShiny() {
+        return shiny;
     }
 
     @Override
     public int getBasePrice() {
-        return 10;
+        return 2000;
     }
 
     @Override
     public int getRps() {
-        return 1;
+        return strength * speed * 100 / 5000;
     }
 
     @Override

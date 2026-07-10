@@ -5,22 +5,29 @@ public class UnusualUnicorn extends Unicorn {
     private int strength;
     private int speed;
     private int intelligence;
-    public UnusualUnicorn(int strength, int speed, int intelligence) {
+    private boolean shiny;
+    public UnusualUnicorn(int strength, int speed, int intelligence, boolean shiny) {
         super("unusual_unicorn", Rarity.UNUSUAL, 1);
         this.strength = strength;
         this.speed = speed;
         this.intelligence = intelligence;
         this.displayName = "Unusual Unicorn";
+        this.shiny = shiny;
+    }
+
+    @Override
+    public boolean isShiny() {
+        return shiny;
     }
 
     @Override
     public int getBasePrice() {
-        return 10;
+        return 100;
     }
 
     @Override
     public int getRps() {
-        return 1;
+        return strength * speed * 5 / 5000;
     }
 
     @Override

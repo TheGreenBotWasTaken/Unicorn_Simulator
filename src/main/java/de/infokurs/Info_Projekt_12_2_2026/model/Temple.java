@@ -2,62 +2,49 @@ package de.infokurs.Info_Projekt_12_2_2026.model;
 
 public class Temple {
     private static Temple INSTANCE;
-    double luck;
-    double spawnRate;
-    int despawnTime;
+    SaveData saveData = SaveManager.getSaveData();
 
-    private Temple() {
-
-        luck = 1.0;
-        spawnRate = 4.0;
-        despawnTime = 10;
-
-    }
     public static Temple getInstance() {
         if(INSTANCE == null) {
             INSTANCE = new Temple();
         }
-
         return INSTANCE;
     }
+
     public double getSpawnRate() {
-        return spawnRate;
+        return saveData.getSpawnUpgrade();
     }
 
     public void setSpawnRate(double spawnRate) {
-        this.spawnRate = spawnRate;
+        saveData.setSpawnUpgrade(spawnRate);
     }
 
     public double getLuck() {
-        return luck;
+        return saveData.getLuckUpgrade();
     }
 
     public void setLuck(double luck) {
-        this.luck = luck;
+        saveData.setLuckUpgrade(luck);
     }
 
     public int getDespawnTime() {
-        return despawnTime;
+        return saveData.getDespawnUpgrade();
     }
 
     public void setDespawnTime(int despawnTime) {
-        this.despawnTime = despawnTime;
+        saveData.setDespawnUpgrade(despawnTime);
     }
-
-
-
-
 
     void luckUp() {
-        setLuck(luck + 0.1);
+        setLuck(getLuck() + 0.1);
     }
 
-    void spawnRateUp() {
-        setSpawnRate(spawnRate + 0.1);
+     void spawnRateUp() {
+        setSpawnRate(getSpawnRate() + 0.1);
     }
 
-    void remainTimeUp() {
-        setDespawnTime(despawnTime + 1);
+     void remainTimeUp() {
+        setDespawnTime(getDespawnTime() + 1);
     }
 }
-//Preis muss noch hinzugefügt werden
+//Preis muss noch hinzugefügt werden (done)

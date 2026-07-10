@@ -8,6 +8,7 @@ import de.infokurs.Info_Projekt_12_2_2026.util.TextureCache;
 import de.infokurs.Info_Projekt_12_2_2026.view.GuiManager;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -43,7 +44,18 @@ public class BreedingController {
     private Timeline refreshTimeline;
 
     @FXML
+    private StackPane nestContentStack;
+
+    @FXML
     private void initialize() {
+        Platform.runLater(() -> {
+            var viewport = nestScrollPane.lookup(".viewport");
+            if (viewport != null) {
+                viewport.setStyle("-fx-background-color: transparent;");
+            }
+            nestScrollPane.setStyle("-fx-background-color: transparent;");
+        });
+        TextureCache.applyScaled(backButton, "/assets/textures/gui/back.png", 5);
         renderNest();
 
         refreshTimeline = new Timeline(new KeyFrame(Duration.millis(500), event -> renderNest()));

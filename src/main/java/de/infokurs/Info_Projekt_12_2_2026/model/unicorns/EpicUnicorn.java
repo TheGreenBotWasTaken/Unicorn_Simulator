@@ -5,23 +5,30 @@ public class EpicUnicorn extends Unicorn {
     private int strength;
     private int speed;
     private int intelligence;
+    private boolean shiny;
 
-    public EpicUnicorn(int strength, int speed, int intelligence) {
+    public EpicUnicorn(int strength, int speed, int intelligence, boolean shiny) {
         super("epic_unicorn", Rarity.EPIC, 1);
         this.strength = strength;
         this.speed = speed;
         this.intelligence = intelligence;
         this.displayName = "Epic Unicorn";
+        this.shiny = shiny;
+    }
+
+    @Override
+    public boolean isShiny() {
+        return shiny;
     }
 
     @Override
     public int getBasePrice() {
-        return 10;
+        return 500;
     }
 
     @Override
     public int getRps() {
-        return 1;
+        return strength * speed * 50 / 5000;
     }
 
     @Override

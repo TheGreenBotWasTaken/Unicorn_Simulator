@@ -6,32 +6,42 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.infokurs.Info_Projekt_12_2_2026.view.guiControllers.UnicornProfileController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.infokurs.Info_Projekt_12_2_2026.view.guiControllers.UnicornProfileController">
    <children>
-      <ImageView fx:id="backButton" fitHeight="70.0" fitWidth="120.0" layoutX="6.0" layoutY="7.0" onMousePressed="#backButtonPressed" onMouseReleased="#backButtonReleased" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="528.0" fitWidth="711.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../assets/textures/gui/back.png" />
+            <Image url="@../../../../assets/textures/background.png" />
          </image>
       </ImageView>
-      <TextField fx:id="nameField" layoutX="314.0" layoutY="70.0" prefHeight="57.0" prefWidth="272.0" promptText="Enter new name...">
-         <font>
-            <Font name="System Bold" size="27.0" />
-         </font>
-      </TextField>
-      <ProgressBar layoutX="386.0" layoutY="197.0" prefWidth="200.0" />
-      <ProgressBar layoutX="386.0" layoutY="225.0" prefWidth="200.0" />
-      <ProgressBar layoutX="386.0" layoutY="252.0" prefWidth="200.0" />
-      <Label layoutX="340.0" layoutY="197.0" text="Str." />
-      <Label layoutX="337.0" layoutY="225.0" text="Spd." />
-      <Label layoutX="341.0" layoutY="252.0" text="Int." />
-      <Label layoutX="367.0" layoutY="12.0" prefHeight="58.0" prefWidth="118.0" text="SPECIAL!">
-         <font>
-            <Font name="System Bold" size="28.0" />
-         </font>
-      </Label>
-      <ImageView fx:id="unicornView" fitHeight="274.0" fitWidth="290.0" layoutX="14.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true" />
-      <Label layoutX="386.0" layoutY="159.0" text="Level XX/XX" />
+      <AnchorPane prefHeight="400.0" prefWidth="700.0">
+         <children>
+            <ImageView fx:id="backButton" fitHeight="70.0" fitWidth="120.0" layoutX="6.0" layoutY="7.0" onMousePressed="#backButtonPressed" onMouseReleased="#backButtonReleased" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../assets/textures/gui/back.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="nameField" layoutX="314.0" layoutY="70.0" prefHeight="57.0" prefWidth="272.0" promptText="Enter new name...">
+               <font>
+                  <Font name="System Bold" size="27.0" />
+               </font>
+            </TextField>
+            <ProgressBar fx:id="strengthProgressBar" layoutX="386.0" layoutY="197.0" prefWidth="200.0" />
+            <ProgressBar fx:id="speedProgressBar" layoutX="386.0" layoutY="225.0" prefWidth="200.0" />
+            <ProgressBar fx:id="intelligenceProgressBar" layoutX="386.0" layoutY="252.0" prefWidth="200.0" />
+            <Label layoutX="340.0" layoutY="197.0" text="Str." />
+            <Label layoutX="337.0" layoutY="225.0" text="Spd." />
+            <Label layoutX="341.0" layoutY="252.0" text="Int." />
+            <Label fx:id="shinyLabel" layoutX="367.0" layoutY="12.0" prefHeight="58.0" prefWidth="118.0" text="SPECIAL!">
+               <font>
+                  <Font name="System Bold" size="28.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="unicornView" fitHeight="274.0" fitWidth="290.0" layoutX="14.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="levelText" layoutX="386.0" layoutY="159.0" text="Level XX/XX" />
+         </children>
+      </AnchorPane>
    </children>
-</AnchorPane>
+</StackPane>

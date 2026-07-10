@@ -2,7 +2,9 @@ package de.infokurs.Info_Projekt_12_2_2026.view.guiControllers;
 
 import de.infokurs.Info_Projekt_12_2_2026.model.Stable;
 import de.infokurs.Info_Projekt_12_2_2026.model.unicorns.Unicorn;
+import de.infokurs.Info_Projekt_12_2_2026.util.TextureCache;
 import de.infokurs.Info_Projekt_12_2_2026.view.GuiManager;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
@@ -36,10 +38,41 @@ public class StallController {
 
     @FXML
     private void initialize() {
-
+        setupTransparency();
         renderUnicorns();
     }
 
+    void setupTransparency() {
+        Platform.runLater(() -> {
+            stallScrollPane.setStyle(
+                    "-fx-background: transparent;" +
+                            "-fx-background-color: transparent;"
+            );
+
+            Node viewport = stallScrollPane.lookup(".viewport");
+            if (viewport != null) {
+                viewport.setStyle("-fx-background-color: transparent;");
+            }
+
+            stallScrollPane.lookupAll(".scroll-bar").forEach(bar ->
+                    bar.setStyle("-fx-background-color: transparent;"));
+
+            stallScrollPane.lookupAll(".track").forEach(track ->
+                    track.setStyle("-fx-background-color: transparent;"));
+
+            stallScrollPane.lookupAll(".track-background").forEach(track ->
+                    track.setStyle("-fx-background-color: transparent;"));
+
+            stallScrollPane.lookupAll(".increment-button, .decrement-button")
+                    .forEach(button ->
+                            button.setStyle("-fx-background-color: transparent;"));
+
+            stallScrollPane.lookupAll(".increment-arrow, .decrement-arrow")
+                    .forEach(arrow ->
+                            arrow.setStyle("-fx-background-color: transparent;"));
+        });
+        TextureCache.applyScaled(backButton, "/assets/textures/gui/back.png", 5);
+    }
     @FXML
     void backButtonPressed(MouseEvent event) {
         GuiManager.scale((ImageView) event.getSource(), GuiManager.PRESS_SCALE);
@@ -100,7 +133,6 @@ public class StallController {
     }
 
     private void onUnicornSlotClicked(Unicorn unicorn, MouseEvent event) {
-        System.out.println(unicorn.getDisplayName() + " wurde angeklickt.");
         sendData(event, unicorn);
     }
 

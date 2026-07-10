@@ -3,6 +3,7 @@ package de.infokurs.Info_Projekt_12_2_2026.view.guiControllers;
 import de.infokurs.Info_Projekt_12_2_2026.Main;
 import de.infokurs.Info_Projekt_12_2_2026.model.Forest;
 import de.infokurs.Info_Projekt_12_2_2026.model.unicorns.Unicorn;
+import de.infokurs.Info_Projekt_12_2_2026.util.TextureCache;
 import de.infokurs.Info_Projekt_12_2_2026.view.GuiManager;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -52,6 +53,10 @@ public class ForestController {
         syncTimeline.setCycleCount(Timeline.INDEFINITE);
 
         Platform.runLater(() -> syncTimeline.play());
+
+        TextureCache.applyScaled(backButton, "/assets/textures/gui/back.png", 5);
+
+
     }
 
     private void sync() {
@@ -78,7 +83,7 @@ public class ForestController {
         view.setFitHeight(80);
 
         double maxX = Math.max(0, forestPane.getWidth() - view.getFitWidth());
-        double maxY = Math.max(0, forestPane.getHeight() - view.getFitHeight());
+        double maxY = Math.max(0, forestPane.getHeight() - view.getFitHeight() - 50);
         view.setLayoutX(Math.random() * maxX);
         view.setLayoutY(Math.random() * maxY);
 

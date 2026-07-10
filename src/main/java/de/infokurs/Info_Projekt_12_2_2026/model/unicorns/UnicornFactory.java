@@ -9,13 +9,14 @@ public class UnicornFactory {
         int intelligence = random.nextInt(100) + 1;
         int strength = random.nextInt(100) + 1;
         int speed = random.nextInt(100) + 1;
+        boolean shiny = random.nextInt(100) == 0;
         return switch (id) {
-            case "common_unicorn" ->    new CommonUnicorn(strength, speed, intelligence);
-            case "unusual_unicorn" ->   new UnusualUnicorn(strength, speed, intelligence);
-            case "rare_unicorn" ->      new RareUnicorn(strength, speed, intelligence);
-            case "epic_unicorn" ->      new EpicUnicorn(strength, speed, intelligence);
-            case "legendary_unicorn" -> new LegendaryUnicorn(strength, speed, intelligence);
-            case "ultra_unicorn" ->     new UltraUnicorn(strength, speed, intelligence);
+            case "common_unicorn" ->    new CommonUnicorn(strength, speed, intelligence, shiny);
+            case "unusual_unicorn" ->   new UnusualUnicorn(strength, speed, intelligence, shiny);
+            case "rare_unicorn" ->      new RareUnicorn(strength, speed, intelligence, shiny);
+            case "epic_unicorn" ->      new EpicUnicorn(strength, speed, intelligence, shiny);
+            case "legendary_unicorn" -> new LegendaryUnicorn(strength, speed, intelligence, shiny);
+            case "ultra_unicorn" ->     new UltraUnicorn(strength, speed, intelligence, shiny);
             // wenn weitere unicorns cases add
             default -> throw new IllegalArgumentException("Unbekannte Unicorn-ID: " + id);
         };

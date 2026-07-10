@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 public class Stable {
     private static volatile Stable INSTANCE;
 
-    private static final int MAX_CAPACITY = 20;
+    private static final int MAX_CAPACITY = 10000; // upgrades? später mit research update
 
     private final List<Unicorn> unicorns;
 

@@ -54,17 +54,19 @@ public class Shop {
     }
 
     private void populateGenerator() {
-        gen.add(new ShopEgg("common_egg",    "Common Egg",    Rarity.COMMON,     500, 500, 0));
-        gen.add(new ShopEgg("uncommon_egg",  "Uncommon Egg",  Rarity.UNUSUAL,  1000, 250, 0));
-        gen.add(new ShopEgg("rare_egg",      "Rare Egg",      Rarity.RARE,      2000, 150, 1));
-        gen.add(new ShopEgg("epic_egg",      "Epic Egg",      Rarity.EPIC,      4000,  90, 2));
-        gen.add(new ShopEgg("legendary_egg", "Legendary Egg", Rarity.LEGENDARY, 8000,  10, 3));
-        gen.add(new ShopEgg("ultra_egg", "ULTRA SONIC SUPER INFINITE MEGA GIGA EXTREMELY COOL RAINBOW EGG!!!!!!!!!", Rarity.ULTRA, 80000,  1000, 3));
+        gen.add(new ShopEgg("common_egg", "Common Egg", Rarity.COMMON, 500, 500, 0));
+        gen.add(new ShopEgg("uncommon_egg", "Uncommon Egg", Rarity.UNUSUAL, 1000, 250, 0));
+        gen.add(new ShopEgg("rare_egg", "Rare Egg", Rarity.RARE, 2000, 150, 1));
+        gen.add(new ShopEgg("epic_egg", "Epic Egg", Rarity.EPIC, 4000, 90, 2));
+        gen.add(new ShopEgg("legendary_egg", "Legendary Egg", Rarity.LEGENDARY, 8000, 10, 3));
+        gen.add(new ShopEgg("ultra_egg", "ULTRA EGG", Rarity.ULTRA, 80000, 1, 4));
+
         for (String unicornId : PURCHASABLE_UNICORN_IDS) {
             Unicorn unicorn = UnicornFactory.createById(unicornId);
             gen.add(unicorn);
         }
     }
+
 
     public synchronized void generateOffers() {
         currentOffers.clear();

@@ -42,29 +42,29 @@ public class Forest {
     }
 
     private void setupGenerator() {
-        randomGenerator.add(new CommonUnicorn(0,0,0));
-        randomGenerator.add(new UnusualUnicorn(0,0,0));
-        randomGenerator.add(new RareUnicorn(0,0,0));
-        randomGenerator.add(new EpicUnicorn(0,0,0));
-        randomGenerator.add(new LegendaryUnicorn(0,0,0));
+        randomGenerator.add(new CommonUnicorn(0,0,0, false));
+        randomGenerator.add(new UnusualUnicorn(0,0,0, false));
+        randomGenerator.add(new RareUnicorn(0,0,0, false));
+        randomGenerator.add(new EpicUnicorn(0,0,0, false));
+        randomGenerator.add(new LegendaryUnicorn(0,0,0, false));
         //ALLE SPAWNABLE EINHÖRNER HIER EINFÜGEN
 
         System.out.println("[Forest] generator set up");
     }
 
-    void upgradeLuck() {
+    public void upgradeLuck() {
         temple.luckUp();
         randomGenerator.setLuck(temple.getLuck());
         System.out.println("[Forest] luck upgraded -> " + temple.getLuck());
     }
 
-    void upgradeTime() {
+    public void upgradeTime() {
         temple.remainTimeUp();
         despawnTime = temple.getDespawnTime();
         System.out.println("[Forest] despawnTime upgraded -> " + despawnTime);
     }
 
-    void upgradeCD() {
+    public void upgradeCD() {
         temple.spawnRateUp();
         System.out.println("[Forest] spawnRate upgraded -> " + temple.getSpawnRate());
     }

@@ -9,9 +9,9 @@
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.infokurs.Info_Projekt_12_2_2026.view.guiControllers.TitleScreenController">
    <children>
-      <ImageView fitHeight="400.0" fitWidth="700.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="526.0" fitWidth="711.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../assets/textures/gui/title_screen_background.png" />
+            <Image url="@../../../../assets/textures/background.png" />
          </image>
       </ImageView>
       <GridPane>

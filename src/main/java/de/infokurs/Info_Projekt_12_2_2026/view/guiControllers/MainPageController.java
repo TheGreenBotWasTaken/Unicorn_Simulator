@@ -3,6 +3,7 @@ package de.infokurs.Info_Projekt_12_2_2026.view.guiControllers;
 import de.infokurs.Info_Projekt_12_2_2026.model.RainbowManager;
 import de.infokurs.Info_Projekt_12_2_2026.model.SaveData;
 import de.infokurs.Info_Projekt_12_2_2026.model.UnicornNumberFormatter;
+import de.infokurs.Info_Projekt_12_2_2026.util.TextureCache;
 import de.infokurs.Info_Projekt_12_2_2026.view.GuiManager;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -50,6 +51,8 @@ public class MainPageController {
     @FXML
     private GridPane gridPane;
 
+    @FXML
+    private ImageView backButton;
 
 
     @FXML
@@ -73,6 +76,7 @@ public class MainPageController {
         );
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
+        TextureCache.applyScaled(backButton, "/assets/textures/gui/back.png", 5);
     }
 
     @FXML
@@ -80,6 +84,16 @@ public class MainPageController {
         GuiManager.scale((ImageView) event.getSource(), GuiManager.PRESS_SCALE);
     }
 
+    @FXML
+    void backButtonReleased(MouseEvent event) {
+        GuiManager.restore((ImageView) event.getSource());
+        GuiManager.switchToScene(event, "title_screen");
+    }
+    @FXML
+    void buttonPressed(MouseEvent event) {
+        GuiManager.scale((ImageView) event.getSource(), GuiManager.PRESS_SCALE);
+
+    }
     @FXML
     void breedingButtonReleased(MouseEvent event) {
         GuiManager.restore((ImageView) event.getSource());

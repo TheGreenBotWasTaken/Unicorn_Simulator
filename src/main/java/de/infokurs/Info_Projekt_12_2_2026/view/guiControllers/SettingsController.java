@@ -2,6 +2,7 @@ package de.infokurs.Info_Projekt_12_2_2026.view.guiControllers;
 
 import de.infokurs.Info_Projekt_12_2_2026.model.SaveData;
 import de.infokurs.Info_Projekt_12_2_2026.model.SaveManager;
+import de.infokurs.Info_Projekt_12_2_2026.util.TextureCache;
 import de.infokurs.Info_Projekt_12_2_2026.view.GuiManager;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -33,6 +34,7 @@ public class SettingsController implements Initializable {
             }
         });
         volumeSlider.setValue(SaveManager.getSaveData().getVolume() * 100);
+        TextureCache.applyScaled(backButton, "/assets/textures/gui/back.png", 5);
     }
 
     @FXML

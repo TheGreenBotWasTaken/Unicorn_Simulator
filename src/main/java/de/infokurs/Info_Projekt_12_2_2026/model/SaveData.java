@@ -7,14 +7,17 @@ import java.util.List;
 public class SaveData {
 
     public final transient float VERSION = 1.0f;
-    public final transient String NAME = "UNICORN CLICKING SIMULATOR DELUXE ULTIMATE V. " + (2000 + VERSION);
+    public final transient String NAME = "LOV PADDOCK V. " + (2000 + VERSION);
 
 
 
+
+    private double spawnUpgrade = 1.0;
+    private int despawnUpgrade = 10;
+    private double luckUpgrade = 1.0;
     private int moneten = 0;
     private long rainbows = 0;
     private double volume;
-    private int money;
 
     private List<Unicorn> unicorns;
 
@@ -26,12 +29,28 @@ public class SaveData {
         this.unicorns = unicorns;
     }
 
-    public int getMoney() {
-        return money;
+    public double getSpawnUpgrade() {
+        return spawnUpgrade;
     }
 
-    public void setMoney(int money) {
-        this.money = money;
+    public void setSpawnUpgrade(double timeUpgrade) {
+        this.spawnUpgrade = timeUpgrade;
+    }
+
+    public double getLuckUpgrade() {
+        return luckUpgrade;
+    }
+
+    public void setLuckUpgrade(double luckUpgrade) {
+        this.luckUpgrade = luckUpgrade;
+    }
+
+    public int getDespawnUpgrade() {
+        return despawnUpgrade;
+    }
+
+    public void setDespawnUpgrade(int despawnUpgrade) {
+        this.despawnUpgrade = despawnUpgrade;
     }
 
     public long getRainbows() { return rainbows; }

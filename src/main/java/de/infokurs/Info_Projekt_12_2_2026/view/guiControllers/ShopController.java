@@ -1,6 +1,7 @@
 package de.infokurs.Info_Projekt_12_2_2026.view.guiControllers;
 
 import de.infokurs.Info_Projekt_12_2_2026.model.*;
+import de.infokurs.Info_Projekt_12_2_2026.util.TextureCache;
 import de.infokurs.Info_Projekt_12_2_2026.view.GuiManager;
 import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
@@ -41,6 +42,7 @@ public class ShopController {
 
     @FXML
     public void initialize() {
+        TextureCache.applyScaled(backButton, "/assets/textures/gui/back.png", 5);
         refreshMoneyDisplay();
         renderOffers();
     }

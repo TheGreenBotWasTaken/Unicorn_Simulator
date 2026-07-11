@@ -35,8 +35,14 @@ public class Temple {
         saveData.setDespawnUpgrade(despawnTime);
     }
 
-    void luckUp() {
+    public int getUpgradeCost(double currentUpgradeLevel, int division) {
+        return (int) Math.pow(currentUpgradeLevel/division, 4) * 30;
+    }
+
+    public void luckUp() {
         setLuck(getLuck() + 0.1);
+        Forest.getInstance().updateLuck();
+        Shop.getInstance().updateLuck();
     }
 
      void spawnRateUp() {

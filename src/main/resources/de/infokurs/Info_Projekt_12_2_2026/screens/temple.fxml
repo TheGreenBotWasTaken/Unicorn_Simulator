@@ -12,7 +12,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.infokurs.Info_Projekt_12_2_2026.view.guiControllers.TempleController">
    <children>
       <ImageView fitHeight="528.0" fitWidth="711.0" pickOnBounds="true" preserveRatio="true">
@@ -122,6 +121,11 @@
                   <Image url="@../../../../assets/textures/gui/back.png" />
                </image>
             </ImageView>
+            <Label layoutX="282.0" layoutY="5.0" prefHeight="52.0" prefWidth="122.0" text="Temple">
+               <font>
+                  <Font name="System Bold" size="33.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>

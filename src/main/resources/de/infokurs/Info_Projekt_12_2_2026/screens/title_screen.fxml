@@ -21,10 +21,10 @@
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="384.7999877929687" minWidth="10.0" prefWidth="381.59997558593744" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="176.8" minHeight="10.0" percentHeight="50.0" prefHeight="70.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="331.2" minHeight="10.0" percentHeight="30.0" prefHeight="300.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="331.2" minHeight="10.0" percentHeight="30.0" prefHeight="300.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="331.2" minHeight="10.0" percentHeight="30.0" prefHeight="300.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="176.8" minHeight="10.0" percentHeight="30.0" prefHeight="70.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="331.2" minHeight="10.0" percentHeight="30.0" prefHeight="140.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="331.2" minHeight="0.0" percentHeight="20.0" prefHeight="117.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="331.2" minHeight="10.0" percentHeight="20.0" prefHeight="43.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <ImageView fx:id="quitButton" fitHeight="150.0" fitWidth="200.0" onMousePressed="#quitButtonPressed" onMouseReleased="#quitButtonReleased" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
@@ -42,7 +42,7 @@
                   <Image url="@../../../../assets/textures/gui/logo.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="settingsButton" fitHeight="150.0" fitWidth="200.0" onMousePressed="#settingsButtonPressed" onMouseReleased="#settingButtonReleased" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+            <ImageView fx:id="settingsButton" fitHeight="150.0" fitWidth="180.0" onMousePressed="#settingsButtonPressed" onMouseReleased="#settingButtonReleased" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                <image>
                   <Image url="@../../../../assets/textures/gui/settings_button.png" />
                </image>

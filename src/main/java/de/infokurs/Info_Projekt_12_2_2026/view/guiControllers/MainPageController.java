@@ -54,6 +54,9 @@ public class MainPageController {
     @FXML
     private ImageView backButton;
 
+    @FXML
+    private ImageView rainbowBackdrop;
+
 
     @FXML
     public void initialize() {
@@ -77,6 +80,7 @@ public class MainPageController {
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
         TextureCache.applyScaled(backButton, "/assets/textures/gui/back.png", 5);
+        TextureCache.applyScaled(rainbowBackdrop, "/assets/textures/gui/wood.png", 4);
     }
 
     @FXML

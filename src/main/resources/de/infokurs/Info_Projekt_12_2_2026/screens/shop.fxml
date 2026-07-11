@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -28,6 +29,11 @@
                </font>
             </Text>
             <HBox fx:id="offersBox" layoutX="34.0" layoutY="150.0" prefHeight="220.0" prefWidth="646.0" spacing="15.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+            <Label layoutX="305.0" layoutY="9.0" text="Shop">
+               <font>
+                  <Font name="System Bold" size="42.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>

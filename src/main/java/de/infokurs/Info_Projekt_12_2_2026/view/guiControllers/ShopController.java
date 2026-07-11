@@ -87,7 +87,7 @@ public class ShopController {
         rarityLabel.setFont(Font.font("Arial", 13));
 
         Label nameLabel = new Label(offer.getCount() + "x " + itemName);
-        nameLabel.setTextFill(Color.WHITE);
+        nameLabel.setTextFill(Color.BLACK);
         nameLabel.setFont(Font.font("Arial", FontWeight.BOLD, 13));
         nameLabel.setWrapText(true);
         nameLabel.setAlignment(Pos.CENTER);

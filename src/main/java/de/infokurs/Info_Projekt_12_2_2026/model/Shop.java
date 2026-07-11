@@ -52,6 +52,11 @@ public class Shop {
         }
         return instance;
     }
+    public void updateLuck() {
+        gen.setLuck(Temple.getInstance().getLuck());
+        populateGenerator();
+        generateOffers();
+    }
 
     private void populateGenerator() {
         gen.add(new ShopEgg("common_egg", "Common Egg", Rarity.COMMON, 500, 500, 0));
@@ -77,7 +82,7 @@ public class Shop {
 
     private Offer rollNewOffer() {
         BuyableItem item = gen.roll();
-        int count = 1 + ThreadLocalRandom.current().nextInt(3); // 1 bis 3
+        int count = 1 + ThreadLocalRandom.current().nextInt(3); // 1 - 3
         float discount = POSSIBLE_DISCOUNTS[ThreadLocalRandom.current().nextInt(POSSIBLE_DISCOUNTS.length)];
         return new Offer(item, count, discount);
     }

@@ -1,7 +1,6 @@
 package de.infokurs.Info_Projekt_12_2_2026.view.guiControllers;
 
-import de.infokurs.Info_Projekt_12_2_2026.model.Forest;
-import de.infokurs.Info_Projekt_12_2_2026.model.Temple;
+import de.infokurs.Info_Projekt_12_2_2026.model.*;
 import de.infokurs.Info_Projekt_12_2_2026.util.TextureCache;
 import de.infokurs.Info_Projekt_12_2_2026.view.GuiManager;
 import javafx.fxml.FXML;
@@ -65,12 +64,13 @@ public class TempleController {
     }
 
     public void update() {
+        Temple instance = Temple.getInstance();
         luckLevelText.setText("Luck level: " + (int) Temple.getInstance().getLuck());
-        luckUpgradeText.setText("Upgrade cost: " + (int) Math.pow(Temple.getInstance().getLuck(), 2));
+        luckUpgradeText.setText("Upgrade cost: " + Temple.getInstance().getUpgradeCost(instance.getLuck(), 1));
         spawnLevelText.setText("Spawn level: " + (int) Temple.getInstance().getSpawnRate());
-        spawnUpgradeText.setText("Upgrade cost: " + (int) Math.pow(Temple.getInstance().getSpawnRate(), 2));
-        timeLevelText.setText("Despawn time: " + (int) Temple.getInstance().getDespawnTime());
-        timeUpgradeText.setText("Upgrade cost: " + (int) Math.pow(Temple.getInstance().getDespawnTime()/10, 2));
+        spawnUpgradeText.setText("Upgrade cost: " + Temple.getInstance().getUpgradeCost(instance.getSpawnRate(), 1));
+        timeLevelText.setText("Despawn time: " + Temple.getInstance().getDespawnTime());
+        timeUpgradeText.setText("Upgrade cost: " + Temple.getInstance().getUpgradeCost(instance.getDespawnTime(), 10));
 
 
 
@@ -91,21 +91,34 @@ public class TempleController {
     @FXML
     void luckUpgradeReleased(MouseEvent event) {
         GuiManager.restore((ImageView) event.getSource());
-        Forest.getInstance().upgradeLuck();
-        update();
+        int upgradeCost = Temple.getInstance().getUpgradeCost(Temple.getInstance().getLuck(), 1);
+        if(RainbowManager.getInstance().getRainbows() >= upgradeCost) {
+            RainbowManager.getInstance().addRainbows(-upgradeCost);
+            Temple.getInstance().luckUp();
+            update();
+        }
     }
 
     @FXML
     void spawnUpgradeReleased(MouseEvent event) {
         GuiManager.restore((ImageView) event.getSource());
-        Forest.getInstance().upgradeCD();
-        update();
+        int upgradeCost = Temple.getInstance().getUpgradeCost(Temple.getInstance().getSpawnRate(), 1);
+        if(RainbowManager.getInstance().getRainbows() >= upgradeCost) {
+            RainbowManager.getInstance().addRainbows(-upgradeCost);
+            Forest.getInstance().upgradeCD();
+            update();
+        }
+
     }
 
     @FXML
     void timeUpgradeReleased(MouseEvent event) {
         GuiManager.restore((ImageView) event.getSource());
-        Forest.getInstance().upgradeTime();
-        update();
+        int upgradeCost = Temple.getInstance().getUpgradeCost(Temple.getInstance().getDespawnTime(), 10);
+        if(RainbowManager.getInstance().getRainbows() >= upgradeCost) {
+            RainbowManager.getInstance().addRainbows(-upgradeCost);
+            Forest.getInstance().upgradeTime();
+            update();
+        }
     }
 }

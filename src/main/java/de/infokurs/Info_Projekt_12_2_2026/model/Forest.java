@@ -52,8 +52,7 @@ public class Forest {
         System.out.println("[Forest] generator set up");
     }
 
-    public void upgradeLuck() {
-        temple.luckUp();
+    public void updateLuck() {
         randomGenerator.setLuck(temple.getLuck());
         System.out.println("[Forest] luck upgraded -> " + temple.getLuck());
     }

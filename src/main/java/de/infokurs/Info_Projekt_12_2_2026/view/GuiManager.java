@@ -26,28 +26,36 @@ public class GuiManager extends Application {
 
         return INSTANCE;
     }
-
+    
 
     @Override
-    public void start(Stage stage) throws IOException {
-        Forest.getInstance().getClass(); //um forestloop zu starten
-        Parent root = FXMLLoader.load(getClass().getResource("/de/infokurs/Info_Projekt_12_2_2026/screens/title_screen.fxml"));
+    public void start(Stage stage) {
+        try {
+            Forest.getInstance().getClass(); //um forestloop zu starten
+            Parent root = FXMLLoader.load(getClass().getResource("/de/infokurs/Info_Projekt_12_2_2026/screens/title_screen.fxml"));
 
-        Scene scene = new Scene(root, 700, 400);
-        stage.setScene(scene);
+            Scene scene = new Scene(root, 700, 400);
+            stage.setScene(scene);
 
-        stage.getIcons().add(new Image(getClass().getResource("/assets/textures/gui/icon.png").toExternalForm()));
-        stage.setTitle(SaveManager.getSaveData().NAME);
-        stage.setResizable(false);
-        stage.show();
+            stage.getIcons().add(new Image(getClass().getResource("/assets/textures/gui/icon.png").toExternalForm()));
+            stage.setTitle(SaveManager.getSaveData().NAME);
+            stage.setResizable(false);
+            stage.show();
 
-         backgroundMusicPlayer =
-                new BackgroundMusicPlayer("/assets/music");
+            backgroundMusicPlayer =
+                    new BackgroundMusicPlayer("/assets/music");
 
-        backgroundMusicPlayer.setVolume(SaveManager.getSaveData().getVolume());
-        backgroundMusicPlayer.play();
-        DebugConsole.start();
+            backgroundMusicPlayer.setVolume(SaveManager.getSaveData().getVolume());
+            backgroundMusicPlayer.play();
+            DebugConsole.start();
+        } catch (Throwable t) {
+            t.printStackTrace();
+            try (java.io.PrintWriter pw = new java.io.PrintWriter(new java.io.FileWriter("crash.log"))) {
+                t.printStackTrace(pw);
+            } catch (Exception ignored) {}
+        }
     }
+
     @Override
     public void stop() {
         SaveManager.save(SaveManager.getSaveData());

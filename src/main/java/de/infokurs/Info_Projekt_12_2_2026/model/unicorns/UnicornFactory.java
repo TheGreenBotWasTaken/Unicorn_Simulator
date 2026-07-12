@@ -3,13 +3,12 @@ package de.infokurs.Info_Projekt_12_2_2026.model.unicorns;
 import java.util.Random;
 
 public class UnicornFactory {
-
+    private static final Random RANDOM = new Random();
     public static Unicorn createById(String id) {
-        Random random = new Random();
-        int intelligence = random.nextInt(100) + 1;
-        int strength = random.nextInt(100) + 1;
-        int speed = random.nextInt(100) + 1;
-        boolean shiny = random.nextInt(100) == 0;
+        int intelligence = RANDOM.nextInt(100) + 1;
+        int strength = RANDOM.nextInt(100) + 1;
+        int speed = RANDOM.nextInt(100) + 1;
+        boolean shiny = RANDOM.nextInt(100) == 0;
         return switch (id) {
             case "common_unicorn" ->    new CommonUnicorn(strength, speed, intelligence, shiny);
             case "unusual_unicorn" ->   new UnusualUnicorn(strength, speed, intelligence, shiny);

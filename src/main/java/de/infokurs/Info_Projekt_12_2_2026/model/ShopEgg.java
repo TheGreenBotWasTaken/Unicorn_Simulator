@@ -28,24 +28,42 @@ public class ShopEgg implements BuyableItem {
         return id;
     }
 
-    public void setPrice(int price) { this.price = price; }
-    public void setWeight(int weight) { this.weight = weight; }
-    public void setMult(double mult) { this.mult = mult; }
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public void setMult(double mult) {
+        this.mult = mult;
+    }
 
     @Override
-    public Rarity getRarity() { return rarity; }
+    public Rarity getRarity() {
+        return rarity;
+    }
 
     @Override
-    public int getBasePrice() { return price; }
+    public int getBasePrice() {
+        return price;
+    }
 
     @Override
-    public int weight() { return weight; }
+    public int weight() {
+        return weight;
+    }
 
     @Override
-    public double mult() { return mult; }
+    public double mult() {
+        return mult;
+    }
 
     @Override
-    public String getDisplayName() { return displayName; }
+    public String getDisplayName() {
+        return displayName;
+    }
 
     @Override
     public String getTexturePath() {

@@ -93,8 +93,6 @@ public class ShopController {
         nameLabel.setAlignment(Pos.CENTER);
 
 
-
-
         Label priceLabel = new Label();
         if (offer.hasDiscount()) {
             priceLabel.setText(offer.getBasePrice() + " → " + offer.getDiscountedPrice());
@@ -160,7 +158,6 @@ public class ShopController {
             timer.start();
 
 
-
         } else {
             card.setBackground(new Background(
                     new BackgroundFill(item.getRarity().getColor(), new CornerRadii(10), Insets.EMPTY)
@@ -197,6 +194,7 @@ public class ShopController {
             renderOffers();
         }
     }
+
     private Color getComplementaryColor(Color color) {
         return Color.color(
                 1 - color.getRed(),

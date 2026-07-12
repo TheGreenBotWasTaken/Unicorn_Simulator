@@ -48,9 +48,9 @@ public class UnicornProfileController {
             nameField.setText(unicorn.getDisplayName());
         }
         shinyLabel.setVisible(unicorn.isShiny());
-        speedProgressBar.setProgress(unicorn.getSpeed()/100.0);
-        strengthProgressBar.setProgress(unicorn.getStrength()/100.0);
-        intelligenceProgressBar.setProgress(unicorn.getIntelligence()/100.0);
+        speedProgressBar.setProgress(unicorn.getSpeed() / 100.0);
+        strengthProgressBar.setProgress(unicorn.getStrength() / 100.0);
+        intelligenceProgressBar.setProgress(unicorn.getIntelligence() / 100.0);
         TextureCache.applyScaled(unicornView, unicorn.getTexturePath(), 5);
         TextureCache.applyScaled(backButton, "/assets/textures/gui/back.png", 5);
     }

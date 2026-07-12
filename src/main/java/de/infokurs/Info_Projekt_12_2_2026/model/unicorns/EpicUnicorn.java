@@ -1,18 +1,16 @@
 package de.infokurs.Info_Projekt_12_2_2026.model.unicorns;
 
 public class EpicUnicorn extends Unicorn {
-    private String displayName;
-    private int strength;
-    private int speed;
-    private int intelligence;
-    private boolean shiny;
+    private final int strength;
+    private final int speed;
+    private final int intelligence;
+    private final boolean shiny;
 
     public EpicUnicorn(int strength, int speed, int intelligence, boolean shiny) {
-        super("epic_unicorn", Rarity.EPIC, 1);
+        super("epic_unicorn", Rarity.EPIC, 1, "Epic Unicorn");
         this.strength = strength;
         this.speed = speed;
         this.intelligence = intelligence;
-        this.displayName = "Epic Unicorn";
         this.shiny = shiny;
     }
 
@@ -28,13 +26,14 @@ public class EpicUnicorn extends Unicorn {
 
     @Override
     public int getRps() {
-        return strength * speed * 50 / 5000;
+        return Math.max(1, strength * speed * 50 / 5000);
     }
 
     @Override
     public String getTexturePath() {
         return "assets/textures/unicorns/unicorn_epic.png";
     }
+
     @Override
     public int getIntelligence() {
         return intelligence;
@@ -50,13 +49,4 @@ public class EpicUnicorn extends Unicorn {
         return strength;
     }
 
-    @Override
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
-    }
-
-    @Override
-    public String getDisplayName() {
-        return displayName;
-    }
 }

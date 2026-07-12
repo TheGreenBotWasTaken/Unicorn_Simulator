@@ -1,17 +1,16 @@
 package de.infokurs.Info_Projekt_12_2_2026.model.unicorns;
 
 public class CommonUnicorn extends Unicorn {
-    private String displayName; // HERE SPACES
-    private int strength;
-    private int speed;
-    private int intelligence;
-    private boolean shiny;
+    private final int strength;
+    private final int speed;
+    private final int intelligence;
+    private final boolean shiny;
+
     public CommonUnicorn(int strength, int speed, int intelligence, boolean shiny) {
-        super("common_unicorn", Rarity.COMMON, 1);
+        super("common_unicorn", Rarity.COMMON, 1, "Common Unicorn");
         this.strength = strength;
         this.speed = speed;
         this.intelligence = intelligence;
-        this.displayName = "Common Unicorn";
         this.shiny = shiny;
     }
 
@@ -27,13 +26,14 @@ public class CommonUnicorn extends Unicorn {
 
     @Override
     public int getRps() {
-        return strength * speed * 1 / 5000;
+        return Math.max(1, strength * speed / 5000);
     }
 
     @Override
     public String getTexturePath() {
         return "assets/textures/unicorns/unicorn_common.png";
     }
+
     @Override
     public int getIntelligence() {
         return intelligence;
@@ -49,13 +49,4 @@ public class CommonUnicorn extends Unicorn {
         return strength;
     }
 
-    @Override
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
-    }
-
-    @Override
-    public String getDisplayName() {
-        return displayName;
-    }
 }

@@ -1,8 +1,6 @@
 package de.infokurs.Info_Projekt_12_2_2026.view.guiControllers;
 
-import de.infokurs.Info_Projekt_12_2_2026.model.RainbowManager;
 import de.infokurs.Info_Projekt_12_2_2026.model.SaveManager;
-import de.infokurs.Info_Projekt_12_2_2026.model.UnicornNumberFormatter;
 import de.infokurs.Info_Projekt_12_2_2026.util.TextureCache;
 import de.infokurs.Info_Projekt_12_2_2026.view.GuiManager;
 import javafx.animation.KeyFrame;
@@ -10,7 +8,6 @@ import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
 public class TitleScreenController {
@@ -84,7 +81,7 @@ public class TitleScreenController {
     @FXML
     void sponsorButtonReleased(MouseEvent event) {
         GuiManager.restore((ImageView) event.getSource());
-        GuiManager.getInstance().getHostServices().showDocument( "https://www.patreon.com/LovPardock" );
+        GuiManager.getInstance().getHostServices().showDocument("https://www.patreon.com/LovPardock");
     }
 
     @FXML

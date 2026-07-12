@@ -1,17 +1,16 @@
 package de.infokurs.Info_Projekt_12_2_2026.model.unicorns;
 
 public class RareUnicorn extends Unicorn {
-    private String displayName; // HERE SPACES
-    private int strength;
-    private int speed;
-    private int intelligence;
-    private boolean shiny;
+    private final int strength;
+    private final int speed;
+    private final int intelligence;
+    private final boolean shiny;
+
     public RareUnicorn(int strength, int speed, int intelligence, boolean shiny) {
-        super("rare_unicorn", Rarity.RARE, 1);
+        super("rare_unicorn", Rarity.RARE, 1, "Rare Unicorn");
         this.strength = strength;
         this.speed = speed;
         this.intelligence = intelligence;
-        this.displayName = "Rare Unicorn";
         this.shiny = shiny;
     }
 
@@ -27,7 +26,7 @@ public class RareUnicorn extends Unicorn {
 
     @Override
     public int getRps() {
-        return strength * speed * 15 / 5000;
+        return Math.max(1, strength * speed * 15 / 5000);
     }
 
 
@@ -35,6 +34,7 @@ public class RareUnicorn extends Unicorn {
     public String getTexturePath() {
         return "assets/textures/unicorns/unicorn_rare.png";
     }
+
     @Override
     public int getIntelligence() {
         return intelligence;
@@ -50,13 +50,4 @@ public class RareUnicorn extends Unicorn {
         return strength;
     }
 
-    @Override
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
-    }
-
-    @Override
-    public String getDisplayName() {
-        return displayName;
-    }
 }

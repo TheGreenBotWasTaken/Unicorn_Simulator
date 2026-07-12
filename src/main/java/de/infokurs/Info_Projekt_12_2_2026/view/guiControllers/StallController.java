@@ -73,6 +73,7 @@ public class StallController {
         });
         TextureCache.applyScaled(backButton, "/assets/textures/gui/back.png", 5);
     }
+
     @FXML
     void backButtonPressed(MouseEvent event) {
         GuiManager.scale((ImageView) event.getSource(), GuiManager.PRESS_SCALE);

@@ -99,7 +99,7 @@ public class ForestController {
     }
 
 
-     // Call if you want the sync loop to pause while screen isn't visible
+    // Call if you want the sync loop to pause while screen isn't visible
 
     public void stopSync() {
         if (syncTimeline != null) {

@@ -1,17 +1,16 @@
 package de.infokurs.Info_Projekt_12_2_2026.model.unicorns;
 
 public class UltraUnicorn extends Unicorn {
-    private String displayName; // HERE SPACES
-    private int strength;
-    private int speed;
-    private int intelligence;
-    private boolean shiny;
+    private final int strength;
+    private final int speed;
+    private final int intelligence;
+    private final boolean shiny;
+
     public UltraUnicorn(int strength, int speed, int intelligence, boolean shiny) {
-        super("ultra_unicorn", Rarity.ULTRA, 1);
+        super("ultra_unicorn", Rarity.ULTRA, 1, "ULTRA SONIC SUPER INFINITE MEGA GIGA EXTREMELY COOL RAINBOW UNICORN");
         this.strength = strength;
         this.speed = speed;
         this.intelligence = intelligence;
-        this.displayName = "ULTRA SONIC SUPER INFINITE MEGA GIGA EXTREMELY COOL RAINBOW UNICORN";
         this.shiny = shiny;
     }
 
@@ -27,7 +26,7 @@ public class UltraUnicorn extends Unicorn {
 
     @Override
     public int getRps() {
-        return strength * speed * 500 / 5000;
+        return Math.max(1, strength * speed * 500 / 5000);
     }
 
 
@@ -35,6 +34,7 @@ public class UltraUnicorn extends Unicorn {
     public String getTexturePath() {
         return "assets/textures/unicorns/unicorn_ultra.png";
     }
+
     @Override
     public int getIntelligence() {
         return intelligence;
@@ -50,13 +50,4 @@ public class UltraUnicorn extends Unicorn {
         return strength;
     }
 
-    @Override
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
-    }
-
-    @Override
-    public String getDisplayName() {
-        return displayName;
-    }
 }

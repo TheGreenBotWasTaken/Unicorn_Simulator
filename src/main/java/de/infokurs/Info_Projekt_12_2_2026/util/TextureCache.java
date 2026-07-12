@@ -9,7 +9,7 @@ import javafx.scene.image.WritableImage;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 
-    /**
+/**
  * Central cache for pixel-art textures.
  *
  * <p>JavaFX's {@code ImageView.smooth} property does not actually disable
@@ -34,10 +34,14 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public final class TextureCache {
 
-    /** Raw, unscaled images, keyed by resource path. Loaded once each. */
+    /**
+     * Raw, unscaled images, keyed by resource path. Loaded once each.
+     */
     private static final ConcurrentHashMap<String, Image> RAW_CACHE = new ConcurrentHashMap<>();
 
-    /** Nearest-neighbor scaled images, keyed by "path@scaleFactor". */
+    /**
+     * Nearest-neighbor scaled images, keyed by "path@scaleFactor".
+     */
     private static final ConcurrentHashMap<String, Image> SCALED_CACHE = new ConcurrentHashMap<>();
 
     private TextureCache() {
@@ -153,14 +157,14 @@ public final class TextureCache {
     // Internal helpers
     // ------------------------------------------------------------------
 
-        private static Image loadRaw(String resourcePath) {
-            String normalized = resourcePath.startsWith("/") ? resourcePath : "/" + resourcePath;
-            var stream = TextureCache.class.getResourceAsStream(normalized);
-            if (stream == null) {
-                throw new IllegalArgumentException("Texture resource not found: " + normalized);
-            }
-            return new Image(stream);
+    private static Image loadRaw(String resourcePath) {
+        String normalized = resourcePath.startsWith("/") ? resourcePath : "/" + resourcePath;
+        var stream = TextureCache.class.getResourceAsStream(normalized);
+        if (stream == null) {
+            throw new IllegalArgumentException("Texture resource not found: " + normalized);
         }
+        return new Image(stream);
+    }
 
     /**
      * Scales an image up by an integer factor using nearest-neighbor

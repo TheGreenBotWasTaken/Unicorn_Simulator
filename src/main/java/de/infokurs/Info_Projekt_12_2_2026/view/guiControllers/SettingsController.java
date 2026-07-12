@@ -23,6 +23,7 @@ public class SettingsController implements Initializable {
     @FXML
     private Slider volumeSlider;
     double volume;
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         volumeSlider.valueProperty().addListener(new ChangeListener<Number>() {

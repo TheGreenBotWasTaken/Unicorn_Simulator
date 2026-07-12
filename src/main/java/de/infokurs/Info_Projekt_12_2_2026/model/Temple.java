@@ -5,7 +5,7 @@ public class Temple {
     SaveData saveData = SaveManager.getSaveData();
 
     public static Temple getInstance() {
-        if(INSTANCE == null) {
+        if (INSTANCE == null) {
             INSTANCE = new Temple();
         }
         return INSTANCE;
@@ -36,7 +36,7 @@ public class Temple {
     }
 
     public int getUpgradeCost(double currentUpgradeLevel, int division) {
-        return (int) Math.pow(currentUpgradeLevel/division, 4) * 30;
+        return (int) Math.pow(currentUpgradeLevel / division, 4) * 30;
     }
 
     public void luckUp() {
@@ -45,11 +45,11 @@ public class Temple {
         Shop.getInstance().updateLuck();
     }
 
-     void spawnRateUp() {
+    void spawnRateUp() {
         setSpawnRate(getSpawnRate() + 0.1);
     }
 
-     void remainTimeUp() {
+    void remainTimeUp() {
         setDespawnTime(getDespawnTime() + 1);
     }
 }

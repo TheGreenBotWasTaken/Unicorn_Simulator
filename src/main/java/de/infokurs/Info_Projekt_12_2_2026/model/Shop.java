@@ -5,11 +5,7 @@ import de.infokurs.Info_Projekt_12_2_2026.model.unicorns.Unicorn;
 import de.infokurs.Info_Projekt_12_2_2026.model.unicorns.UnicornFactory;
 
 import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ThreadLocalRandom;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 public class Shop {
 
@@ -52,6 +48,7 @@ public class Shop {
         }
         return instance;
     }
+
     public void updateLuck() {
         gen.setLuck(Temple.getInstance().getLuck());
         populateGenerator();
@@ -122,5 +119,5 @@ public class Shop {
                 Nest.getInstance().addEgg(egg);
             }
         }
-        }
     }
+}

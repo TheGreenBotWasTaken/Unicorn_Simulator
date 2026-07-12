@@ -93,11 +93,13 @@ public class MainPageController {
         GuiManager.restore((ImageView) event.getSource());
         GuiManager.switchToScene(event, "title_screen");
     }
+
     @FXML
     void buttonPressed(MouseEvent event) {
         GuiManager.scale((ImageView) event.getSource(), GuiManager.PRESS_SCALE);
 
     }
+
     @FXML
     void breedingButtonReleased(MouseEvent event) {
         GuiManager.restore((ImageView) event.getSource());
@@ -110,7 +112,8 @@ public class MainPageController {
         GuiManager.scale((ImageView) event.getSource(), GuiManager.PRESS_SCALE);
 
     }
-// maybe alle in eine methode?
+
+    // maybe alle in eine methode?
     @FXML
     void stallButtonReleased(MouseEvent event) {
         GuiManager.restore((ImageView) event.getSource());
@@ -127,6 +130,7 @@ public class MainPageController {
         GuiManager.restore((ImageView) event.getSource());
         GuiManager.switchToScene(event, "temple");
     }
+
     @FXML
     void unicornButtonMousePressed(MouseEvent event) {
         RainbowManager.getInstance().addRainbows(1);
@@ -134,6 +138,7 @@ public class MainPageController {
         System.out.println(RainbowManager.getInstance().getRainbows());
         GuiManager.scale((ImageView) event.getSource(), GuiManager.PRESS_SCALE);
     }
+
     public void updateLabel() {
         rainbowLabel.setText("current reighnbowes: " + UnicornNumberFormatter.format(RainbowManager.getInstance().getRainbows()));
     }
@@ -164,7 +169,6 @@ public class MainPageController {
         GuiManager.restore((ImageView) event.getSource());
         GuiManager.switchToScene(event, "forest");
     }
-
 
 
 //    for (ImageView iv : buttonList) {

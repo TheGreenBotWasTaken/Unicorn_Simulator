@@ -1,17 +1,16 @@
 package de.infokurs.Info_Projekt_12_2_2026.model.unicorns;
 
 public class UnusualUnicorn extends Unicorn {
-    private String displayName; // HERE SPACES
-    private int strength;
-    private int speed;
-    private int intelligence;
-    private boolean shiny;
+    private final int strength;
+    private final int speed;
+    private final int intelligence;
+    private final boolean shiny;
+
     public UnusualUnicorn(int strength, int speed, int intelligence, boolean shiny) {
-        super("unusual_unicorn", Rarity.UNUSUAL, 1);
+        super("unusual_unicorn", Rarity.UNUSUAL, 1, "Unusual Unicorn");
         this.strength = strength;
         this.speed = speed;
         this.intelligence = intelligence;
-        this.displayName = "Unusual Unicorn";
         this.shiny = shiny;
     }
 
@@ -27,7 +26,7 @@ public class UnusualUnicorn extends Unicorn {
 
     @Override
     public int getRps() {
-        return strength * speed * 5 / 5000;
+        return Math.max(1, strength * speed * 5 / 5000);
     }
 
     @Override
@@ -50,13 +49,4 @@ public class UnusualUnicorn extends Unicorn {
         return strength;
     }
 
-    @Override
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
-    }
-
-    @Override
-    public String getDisplayName() {
-        return displayName;
-    }
 }

@@ -10,14 +10,12 @@ public class SaveData {
     public final transient String NAME = "LOV PADDOCK V. " + (2000 + VERSION);
 
 
-
-
     private double spawnUpgrade = 1.0;
     private int despawnUpgrade = 10;
     private double luckUpgrade = 1.0;
     private int moneten = 0;
     private long rainbows = 0;
-    private double volume;
+    private double volume = 1.0;
 
     private List<Unicorn> unicorns;
 
@@ -53,8 +51,13 @@ public class SaveData {
         this.despawnUpgrade = despawnUpgrade;
     }
 
-    public long getRainbows() { return rainbows; }
-    public void setRainbows(long rainbows) { this.rainbows = rainbows; }
+    public long getRainbows() {
+        return rainbows;
+    }
+
+    public void setRainbows(long rainbows) {
+        this.rainbows = rainbows;
+    }
 
     public double getVolume() {
         return volume;

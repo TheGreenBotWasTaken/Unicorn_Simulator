@@ -73,8 +73,6 @@ public class TempleController {
         timeUpgradeText.setText("Upgrade cost: " + Temple.getInstance().getUpgradeCost(instance.getDespawnTime(), 10));
 
 
-
-
     }
 
     @FXML
@@ -92,7 +90,7 @@ public class TempleController {
     void luckUpgradeReleased(MouseEvent event) {
         GuiManager.restore((ImageView) event.getSource());
         int upgradeCost = Temple.getInstance().getUpgradeCost(Temple.getInstance().getLuck(), 1);
-        if(RainbowManager.getInstance().getRainbows() >= upgradeCost) {
+        if (RainbowManager.getInstance().getRainbows() >= upgradeCost) {
             RainbowManager.getInstance().addRainbows(-upgradeCost);
             Temple.getInstance().luckUp();
             update();
@@ -103,7 +101,7 @@ public class TempleController {
     void spawnUpgradeReleased(MouseEvent event) {
         GuiManager.restore((ImageView) event.getSource());
         int upgradeCost = Temple.getInstance().getUpgradeCost(Temple.getInstance().getSpawnRate(), 1);
-        if(RainbowManager.getInstance().getRainbows() >= upgradeCost) {
+        if (RainbowManager.getInstance().getRainbows() >= upgradeCost) {
             RainbowManager.getInstance().addRainbows(-upgradeCost);
             Forest.getInstance().upgradeCD();
             update();
@@ -115,7 +113,7 @@ public class TempleController {
     void timeUpgradeReleased(MouseEvent event) {
         GuiManager.restore((ImageView) event.getSource());
         int upgradeCost = Temple.getInstance().getUpgradeCost(Temple.getInstance().getDespawnTime(), 10);
-        if(RainbowManager.getInstance().getRainbows() >= upgradeCost) {
+        if (RainbowManager.getInstance().getRainbows() >= upgradeCost) {
             RainbowManager.getInstance().addRainbows(-upgradeCost);
             Forest.getInstance().upgradeTime();
             update();

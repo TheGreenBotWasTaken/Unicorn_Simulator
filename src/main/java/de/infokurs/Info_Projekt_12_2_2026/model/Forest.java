@@ -42,11 +42,11 @@ public class Forest {
     }
 
     private void setupGenerator() {
-        randomGenerator.add(new CommonUnicorn(0,0,0, false));
-        randomGenerator.add(new UnusualUnicorn(0,0,0, false));
-        randomGenerator.add(new RareUnicorn(0,0,0, false));
-        randomGenerator.add(new EpicUnicorn(0,0,0, false));
-        randomGenerator.add(new LegendaryUnicorn(0,0,0, false));
+        randomGenerator.add(new CommonUnicorn(0, 0, 0, false));
+        randomGenerator.add(new UnusualUnicorn(0, 0, 0, false));
+        randomGenerator.add(new RareUnicorn(0, 0, 0, false));
+        randomGenerator.add(new EpicUnicorn(0, 0, 0, false));
+        randomGenerator.add(new LegendaryUnicorn(0, 0, 0, false));
         //ALLE SPAWNABLE EINHÖRNER HIER EINFÜGEN
 
         System.out.println("[Forest] generator set up");

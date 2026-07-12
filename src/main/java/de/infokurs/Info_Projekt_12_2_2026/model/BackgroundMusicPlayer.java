@@ -3,8 +3,6 @@ package de.infokurs.Info_Projekt_12_2_2026.model;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
-import java.io.File;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,15 +10,30 @@ import java.util.Random;
 
 public class BackgroundMusicPlayer {
 
-    private File easterEggFile;
-    private final List<File> songs = new ArrayList<>();
+    private static final String[] SONG_FILES = {
+            "Amazing_Plan.mp3",
+            "Carefree.mp3",
+            "Cipher2.mp3",
+            "Fluffing_Duck.mp3",
+            "Merry_Go.mp3",
+            "Monkeys_Spinning_Monkeys.mp3",
+            "Move_Forward.mp3",
+            "Pixel_Peeker_Polka.mp3",
+            "Scheming_Weasel.mp3",
+            "Sneaky_Adventure.mp3",
+            "Sneaky_Snitch.mp3",
+            "The_Builder.mp3"
+    };
+
+    private static final String EASTER_EGG_FILE = "nothingtoseeheremovealong.mp3";
+
+    private String easterEggResource;
+    private final List<String> songs = new ArrayList<>();
     private final Random random = new Random();
 
     private MediaPlayer mediaPlayer;
     private double volume;
     private int lastSongIndex = -1;
-
-    private static final String EASTER_EGG_FILE = "nothingtoseeheremovealong.mp3";
 
     public BackgroundMusicPlayer(String musicFolderPath) {
         loadSongs(musicFolderPath);
@@ -33,35 +46,22 @@ public class BackgroundMusicPlayer {
     }
 
     private void loadSongs(String folderPath) {
-        URL musicURL = getClass().getResource(folderPath);
+        String normalizedFolder = folderPath.startsWith("/") ? folderPath : "/" + folderPath;
 
-        if (musicURL == null) {
-            throw new IllegalArgumentException("Music folder not found: " + folderPath);
-        }
-
-        File folder;
-        try {
-            folder = new File(musicURL.toURI());
-        } catch (URISyntaxException e) {
-            throw new RuntimeException(e);
-        }
-
-        if (!folder.exists() || !folder.isDirectory()) {
-            throw new IllegalArgumentException("Invalid music folder: " + folderPath);
-        }
-
-        File[] files = folder.listFiles();
-        if (files == null) return;
-        for (File file : files) {
-            if (file.isFile() && file.getName().toLowerCase().endsWith(".mp3")) {
-
-                if (file.getName().equalsIgnoreCase(EASTER_EGG_FILE)) {
-                    easterEggFile = file;
-                    continue;
-                }
-
-                songs.add(file);
+        for (String name : SONG_FILES) {
+            String resourcePath = normalizedFolder + "/" + name;
+            if (getClass().getResource(resourcePath) == null) {
+                System.err.println("[MUSIC] Missing resource: " + resourcePath);
+                continue;
             }
+            songs.add(resourcePath);
+        }
+
+        String easterEggPath = normalizedFolder + "/" + EASTER_EGG_FILE;
+        if (getClass().getResource(easterEggPath) != null) {
+            easterEggResource = easterEggPath;
+        } else {
+            System.err.println("[MUSIC] Missing easter egg resource: " + easterEggPath);
         }
     }
 
@@ -72,13 +72,9 @@ public class BackgroundMusicPlayer {
     private void playNext() {
         if (songs.isEmpty()) return;
 
-        if (random.nextInt(100) == 1) {
-            File easterEgg = findEasterEgg();
-
-            if (easterEgg != null) {
-                playFile(easterEgg);
-                return;
-            }
+        if (random.nextInt(100) == 1 && easterEggResource != null) {
+            playFile(easterEggResource);
+            return;
         }
 
         int index;
@@ -96,24 +92,26 @@ public class BackgroundMusicPlayer {
         playFile(songs.get(index));
     }
 
-    private void playFile(File file) {
+    private void playFile(String resourcePath) {
         if (mediaPlayer != null) {
             mediaPlayer.stop();
             mediaPlayer.dispose();
         }
 
-        Media media = new Media(file.toURI().toString());
+        URL resourceUrl = getClass().getResource(resourcePath);
+        if (resourceUrl == null) {
+            System.err.println("[MUSIC] Resource disappeared: " + resourcePath);
+            return;
+        }
+
+        Media media = new Media(resourceUrl.toExternalForm());
         mediaPlayer = new MediaPlayer(media);
 
         mediaPlayer.setVolume(volume);
         mediaPlayer.setOnEndOfMedia(this::playNext);
         mediaPlayer.play();
 
-        System.out.println("[MUSIC] Now playing: \"" + file.getName() + "\"");
-    }
-
-    private File findEasterEgg() {
-        return easterEggFile;
+        System.out.println("[MUSIC] Now playing: " + resourcePath);
     }
 
     public void stop() {

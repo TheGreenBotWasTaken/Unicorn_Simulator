@@ -1,43 +1,47 @@
 package de.infokurs.Info_Projekt_12_2_2026.model.unicorns;
 
-import de.infokurs.Info_Projekt_12_2_2026.model.Egg;
 import de.infokurs.Info_Projekt_12_2_2026.model.BuyableItem;
+import de.infokurs.Info_Projekt_12_2_2026.model.Egg;
 
 public abstract class Unicorn implements BuyableItem { // future unicorns should extend this
-    private final String ID; // NO SPACES
-    private final Rarity RARITY;
+    private final String id; // NO SPACES
+    private final Rarity rarity;
     private int level;
+    private String displayName;
 
-    public Unicorn(String id, Rarity rarity, int baseLevel) {
-        this.ID = id;
-        this.RARITY = rarity;
+    public Unicorn(String id, Rarity rarity, int baseLevel, String displayName) {
+        this.id = id;
+        this.rarity = rarity;
         this.level = baseLevel;
+        this.displayName = displayName;
     }
+
     public abstract boolean isShiny();
+
     public abstract int getBasePrice();
 
     public abstract int getRps();
 
     public Rarity getRarity() {
-        return RARITY;
+        return rarity;
     }
 
     public String getId() {
-        return ID;
+        return id;
     }
 
     public Egg layEgg() {
-        return new Egg(RARITY, level, ID);
+        return new Egg(rarity, level, id);
     }
 
     @Override
     public int weight() {
-        return RARITY.weight();
+        return rarity.weight();
     }
 
     @Override
     public double mult() {
-        return RARITY.mult();
+        return rarity.mult();
     }
 
     public abstract String getTexturePath();
@@ -48,7 +52,12 @@ public abstract class Unicorn implements BuyableItem { // future unicorns should
 
     public abstract int getStrength();
 
-    public abstract void setDisplayName(String displayName);
+    public String getDisplayName() {
+        return displayName;
+    }
 
-    public abstract String getDisplayName();
+    public void setDisplayName(String displayName) {
+        if (displayName == null || displayName.isBlank()) return; // guard against empty rename
+        this.displayName = displayName.trim();
+    }
 }

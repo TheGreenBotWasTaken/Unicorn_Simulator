@@ -11,20 +11,37 @@ public enum Rarity {
     LEGENDARY(Color.PINK, 20, 50, 100, "Legendary", 10, 2),
     ULTRA(Color.WHITE, 100, 100, 1000, "ULTRA SONIC SUPER INFINITE MEGA GIGA EXTREMELY COOL RAINBOW", 1, 4);
 
+    Rarity(Color color, int minLevel, int maxLevel, int hatchFactor, String name, int weight, double multi) {
+        this.weight = weight;
+        this.multi = multi;
+        this.color = color;
+        this.minLevel = minLevel;
+        this.maxLevel = maxLevel;
+        this.hatchFactor = hatchFactor;
+        this.name = name;
+    }
+
     private final Color color;
     private final int minLevel;
     private final int maxLevel;
     private final int weight;
     private final double multi;
+    private final String name;
+    private final int hatchFactor;
 
     public String getName() {
         return name;
     }
 
-    private final String name;
 
-    public int weight() { return weight; }
-    public double mult() { return multi; }
+    public int weight() {
+        return weight;
+    }
+
+    public double mult() {
+        return multi;
+    }
+
     public int getHatchFactor() {
         return hatchFactor;
     }
@@ -35,18 +52,6 @@ public enum Rarity {
 
     public int getMinLevel() {
         return minLevel;
-    }
-
-    private final int hatchFactor;
-
-    Rarity(Color color, int minLevel, int maxLevel, int hatchFactor, String name, int weight, double multi) {
-        this.weight = weight;
-        this.multi = multi;
-        this.color = color;
-        this.minLevel = minLevel;
-        this.maxLevel = maxLevel;
-        this.hatchFactor = hatchFactor;
-        this.name = name;
     }
 
     public Color getColor() {

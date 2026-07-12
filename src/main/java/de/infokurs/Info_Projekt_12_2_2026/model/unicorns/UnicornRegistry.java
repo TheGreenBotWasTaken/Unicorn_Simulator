@@ -1,10 +1,6 @@
 package de.infokurs.Info_Projekt_12_2_2026.model.unicorns;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.EnumMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class UnicornRegistry {
 
